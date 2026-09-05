@@ -65,7 +65,7 @@ a {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
 }
 
 .nav-links a {
@@ -161,7 +161,7 @@ a {
 
 .button-primary {
   background: var(--purple);
-  color: white;
+  color: #ffffff;
 }
 
 .button-primary:hover {
@@ -278,7 +278,7 @@ a {
 }
 
 .research-tags span:nth-child(3) {
-  border-color: rgba(183, 228, 199, 0.85);
+  border-color: rgba(183, 228, 199, 0.90);
 }
 
 .research-tags span:nth-child(4) {
@@ -357,7 +357,9 @@ a {
   font-size: 15px;
   line-height: 1.7;
 }
-/* Skills & Tools */
+
+
+/* Skills */
 
 .skills-section {
   padding: 90px 0;
@@ -376,7 +378,7 @@ a {
 }
 
 .skills-content h2 {
-  margin: 0 0 32px;
+  margin: 0 0 34px;
   color: var(--dark);
   font-size: clamp(30px, 4vw, 42px);
   line-height: 1.2;
@@ -392,7 +394,7 @@ a {
 
 .skill-group h3 {
   margin: 0 0 12px;
-  color: var(--text);
+  color: var(--dark);
   font-size: 15px;
   font-weight: 700;
 }
@@ -406,15 +408,12 @@ a {
 .skill-tags span {
   display: inline-block;
   padding: 8px 14px;
-
   background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 999px;
-
   color: var(--text);
   font-size: 14px;
   font-weight: 500;
-
   transition: 0.2s ease;
 }
 
@@ -427,18 +426,19 @@ a {
 }
 
 .skill-tags span:nth-child(3n+3) {
-  border-color: rgba(183, 228, 199, 0.90);
+  border-color: rgba(183, 228, 199, 0.95);
 }
 
 .skill-tags span:hover {
   transform: translateY(-2px);
 }
 
+
 /* CV */
 
 .cv-section {
   padding: 90px 0;
-  background: var(--soft-background);
+  background: #ffffff;
 }
 
 .cv-container {
@@ -476,7 +476,7 @@ a {
 
 .contact-section {
   padding: 90px 0;
-  background: #ffffff;
+  background: var(--soft-background);
 }
 
 .contact-container {
@@ -517,7 +517,7 @@ a {
 
   padding: 18px 22px;
 
-  background: var(--soft-background);
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 16px;
 
@@ -556,7 +556,7 @@ a {
 
 .footer {
   border-top: 1px solid var(--border);
-  background: var(--soft-background);
+  background: #ffffff;
 }
 
 .footer-content {
@@ -596,22 +596,22 @@ a {
     padding: 80px 0;
   }
 
-.about-container,
-.research-container,
-.publications-container,
-.skills-container,
-.cv-container,
-.contact-container {
+  .about-container,
+  .research-container,
+  .publications-container,
+  .skills-container,
+  .cv-container,
+  .contact-container {
     grid-template-columns: 1fr;
     gap: 24px;
   }
 
-.about-section,
-.research-section,
-.publications-section,
-.skills-section,
-.cv-section,
-.contact-section {
+  .about-section,
+  .research-section,
+  .publications-section,
+  .skills-section,
+  .cv-section,
+  .contact-section {
     padding: 80px 0;
   }
 
