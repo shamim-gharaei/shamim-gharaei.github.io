@@ -9,7 +9,15 @@
 
   <meta
     name="description"
-    content="Personal academic website of Shamim Gharaei, a Computer Engineering graduate interested in anomaly detection, machine learning, and network analysis."
+    content="Personal academic website of Shamim Gharaei, Computer Engineering graduate."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
   >
 
   <link
@@ -18,8 +26,10 @@
   >
 
   <link rel="stylesheet" href="style.css">
+
   <script src="script.js" defer></script>
 </head>
+
 
 <body>
 
@@ -28,6 +38,7 @@
     <div class="container nav-container">
 
       <a class="logo" href="#">
+        <span class="logo-dot"></span>
         Shamim Gharaei
       </a>
 
@@ -49,44 +60,117 @@
 
     <!-- Hero -->
     <section class="hero">
-      <div class="container hero-content">
+      <div class="container hero-grid">
 
-        <p class="hero-tag">
-          Hello, I'm
-        </p>
+        <div class="hero-copy">
 
-        <h1>
-          Shamim Gharaei
-        </h1>
+          <div class="hero-kicker">
+            <span></span>
+            Computer Engineering Graduate
+          </div>
 
-        <h2>
-          Computer Engineering Graduate
-        </h2>
+          <h1>
+            Hi, I'm
+            <strong>Shamim Gharaei.</strong>
+          </h1>
 
-        <p class="hero-text">
-          Interested in anomaly detection, machine learning,
-          and the analysis of network and social-network data.
-        </p>
+          <p class="hero-text">
+            I'm interested in anomaly detection, machine learning,
+            and the analysis of network and social-network data
+            through research and hands-on technical projects.
+          </p>
 
-        <div class="hero-buttons">
+          <div class="hero-buttons">
 
-          <a
-            class="button button-primary"
-            href="https://github.com/shamim-gharaei"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
+            <a
+              class="button button-primary"
+              href="https://github.com/shamim-gharaei"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View GitHub
+              <span>↗</span>
+            </a>
 
-          <a
-            class="button button-secondary"
-            href="https://www.linkedin.com/in/shamimgharaei"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
+            <a
+              class="button button-secondary"
+              href="https://www.linkedin.com/in/shamimgharaei"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+          <div class="visual-glow glow-pink"></div>
+          <div class="visual-glow glow-purple"></div>
+          <div class="visual-glow glow-green"></div>
+
+          <div class="network-panel">
+
+            <div class="network-panel-top">
+              <span>Research snapshot</span>
+              <span class="status">
+                <i></i>
+                Portfolio
+              </span>
+            </div>
+
+            <svg
+              class="network-graphic"
+              viewBox="0 0 500 290"
+              role="img"
+              aria-label="Abstract network graphic"
+            >
+
+              <line x1="90" y1="80" x2="205" y2="55" />
+              <line x1="205" y1="55" x2="305" y2="105" />
+              <line x1="305" y1="105" x2="405" y2="70" />
+
+              <line x1="90" y1="80" x2="145" y2="185" />
+              <line x1="145" y1="185" x2="265" y2="210" />
+              <line x1="265" y1="210" x2="375" y2="180" />
+
+              <line x1="205" y1="55" x2="265" y2="210" />
+              <line x1="305" y1="105" x2="375" y2="180" />
+              <line x1="145" y1="185" x2="305" y2="105" />
+
+              <circle class="node node-pink" cx="90" cy="80" r="11" />
+              <circle class="node node-purple" cx="205" cy="55" r="15" />
+              <circle class="node node-green" cx="305" cy="105" r="12" />
+              <circle class="node node-pink" cx="405" cy="70" r="9" />
+              <circle class="node node-green" cx="145" cy="185" r="14" />
+              <circle class="node node-purple" cx="265" cy="210" r="11" />
+              <circle class="node node-pink" cx="375" cy="180" r="15" />
+
+            </svg>
+
+            <div class="snapshot-grid">
+
+              <div>
+                <strong>1</strong>
+                <span>Publication</span>
+              </div>
+
+              <div>
+                <strong>2</strong>
+                <span>Selected Projects</span>
+              </div>
+
+              <div>
+                <strong>4</strong>
+                <span>Research Interests</span>
+              </div>
+
+            </div>
+
+          </div>
 
         </div>
 
@@ -104,6 +188,10 @@
         </div>
 
         <div class="section-content about-content">
+
+          <p class="section-eyebrow">
+            Background
+          </p>
 
           <h2>
             A little about me
@@ -137,15 +225,36 @@
 
         <div class="section-content">
 
+          <p class="section-eyebrow">
+            Interests
+          </p>
+
           <h2>
             Areas I'm interested in
           </h2>
 
-          <div class="research-tags">
-            <span>Anomaly Detection</span>
-            <span>Machine Learning</span>
-            <span>Network Intrusion Detection</span>
-            <span>Social Network Analysis</span>
+          <div class="research-grid">
+
+            <div class="interest-card pink-card">
+              <span class="interest-number">01</span>
+              <h3>Anomaly Detection</h3>
+            </div>
+
+            <div class="interest-card purple-card">
+              <span class="interest-number">02</span>
+              <h3>Machine Learning</h3>
+            </div>
+
+            <div class="interest-card green-card">
+              <span class="interest-number">03</span>
+              <h3>Network Intrusion Detection</h3>
+            </div>
+
+            <div class="interest-card pink-card">
+              <span class="interest-number">04</span>
+              <h3>Social Network Analysis</h3>
+            </div>
+
           </div>
 
         </div>
@@ -165,15 +274,24 @@
 
         <div class="section-content">
 
+          <p class="section-eyebrow">
+            Research
+          </p>
+
           <h2>
             Selected Publication
           </h2>
 
-          <div class="publication-card">
+          <article class="publication-card">
 
-            <p class="publication-year">
-              2025
-            </p>
+            <div class="publication-accent"></div>
+
+            <div class="publication-top">
+              <span class="publication-year">2025</span>
+              <span class="publication-type">
+                Conference Paper
+              </span>
+            </div>
 
             <h3>
               Anomaly Detection in Social Networks:
@@ -192,7 +310,7 @@
               Technological Futures Studies
             </p>
 
-          </div>
+          </article>
 
         </div>
 
@@ -211,66 +329,100 @@
 
         <div class="section-content">
 
+          <p class="section-eyebrow">
+            Toolkit
+          </p>
+
           <h2>
             Technical Skills
           </h2>
 
-          <div class="skill-group">
-            <h3>Programming Languages</h3>
 
-            <div class="skill-tags">
-              <span>Python</span>
-              <span>C</span>
-              <span>C++</span>
-              <span>Java</span>
+          <div class="skills-grid">
+
+            <div class="skill-card">
+
+              <div class="skill-card-title">
+                <span class="skill-icon pink-icon">&lt;/&gt;</span>
+                <h3>Programming Languages</h3>
+              </div>
+
+              <div class="skill-tags">
+                <span>Python</span>
+                <span>C</span>
+                <span>C++</span>
+                <span>Java</span>
+              </div>
+
             </div>
-          </div>
 
 
-          <div class="skill-group">
-            <h3>ML & Data Science</h3>
+            <div class="skill-card">
 
-            <div class="skill-tags">
-              <span>NumPy</span>
-              <span>Pandas</span>
-              <span>scikit-learn</span>
-              <span>Matplotlib</span>
-              <span>NetworkX</span>
-              <span>Jupyter Notebook</span>
+              <div class="skill-card-title">
+                <span class="skill-icon purple-icon">◇</span>
+                <h3>ML & Data Science</h3>
+              </div>
+
+              <div class="skill-tags">
+                <span>NumPy</span>
+                <span>Pandas</span>
+                <span>scikit-learn</span>
+                <span>Matplotlib</span>
+                <span>NetworkX</span>
+                <span>Jupyter Notebook</span>
+              </div>
+
             </div>
-          </div>
 
 
-          <div class="skill-group">
-            <h3>Tools</h3>
+            <div class="skill-card">
 
-            <div class="skill-tags">
-              <span>Git</span>
-              <span>GitHub</span>
-              <span>Linux</span>
-              <span>LaTeX</span>
+              <div class="skill-card-title">
+                <span class="skill-icon green-icon">⌘</span>
+                <h3>Tools</h3>
+              </div>
+
+              <div class="skill-tags">
+                <span>Git</span>
+                <span>GitHub</span>
+                <span>Linux</span>
+                <span>LaTeX</span>
+              </div>
+
             </div>
-          </div>
 
 
-          <div class="skill-group">
-            <h3>Databases</h3>
+            <div class="skill-card">
 
-            <div class="skill-tags">
-              <span>PostgreSQL</span>
-              <span>MySQL</span>
+              <div class="skill-card-title">
+                <span class="skill-icon pink-icon">▤</span>
+                <h3>Databases</h3>
+              </div>
+
+              <div class="skill-tags">
+                <span>PostgreSQL</span>
+                <span>MySQL</span>
+              </div>
+
             </div>
-          </div>
 
 
-          <div class="skill-group">
-            <h3>Web Development</h3>
+            <div class="skill-card skill-card-wide">
 
-            <div class="skill-tags">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>Django</span>
+              <div class="skill-card-title">
+                <span class="skill-icon purple-icon">◎</span>
+                <h3>Web Development</h3>
+              </div>
+
+              <div class="skill-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Django</span>
+              </div>
+
             </div>
+
           </div>
 
         </div>
@@ -293,6 +445,10 @@
           <div class="projects-heading">
 
             <div>
+              <p class="section-eyebrow">
+                Portfolio
+              </p>
+
               <h2>
                 Selected Projects
               </h2>
@@ -308,15 +464,18 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              View all repositories ↗
+              View all repositories
+              <span>↗</span>
             </a>
 
           </div>
 
           <div id="github-projects" class="projects-grid">
+
             <p class="projects-message">
               Loading GitHub projects...
             </p>
+
           </div>
 
         </div>
@@ -336,32 +495,44 @@
 
         <div class="section-content">
 
-          <h2>
-            Curriculum Vitae
-          </h2>
+          <div class="cv-panel">
 
-          <p class="cv-text">
-            You can view or download my current academic CV below.
-          </p>
+            <div>
 
-          <div class="cv-buttons">
+              <p class="section-eyebrow">
+                Academic CV
+              </p>
 
-            <a
-              class="button button-primary"
-              href="cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View CV
-            </a>
+              <h2>
+                Curriculum Vitae
+              </h2>
 
-            <a
-              class="button button-secondary"
-              href="cv.pdf"
-              download
-            >
-              Download CV
-            </a>
+              <p>
+                You can view or download my current academic CV below.
+              </p>
+
+            </div>
+
+            <div class="cv-buttons">
+
+              <a
+                class="button button-primary"
+                href="cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View CV
+              </a>
+
+              <a
+                class="button button-secondary"
+                href="cv.pdf"
+                download
+              >
+                Download CV
+              </a>
+
+            </div>
 
           </div>
 
@@ -382,50 +553,61 @@
 
         <div class="section-content">
 
-          <h2>
-            Let's connect
-          </h2>
+          <div class="contact-panel">
 
-          <p class="contact-intro">
-            Feel free to reach out by email or connect with me through
-            LinkedIn and GitHub.
-          </p>
+            <p class="section-eyebrow">
+              Get in touch
+            </p>
 
-          <div class="contact-links">
+            <h2>
+              Let's connect.
+            </h2>
 
-            <a
-              class="contact-card"
-              href="mailto:shamim.gharaei2002@gmail.com"
-            >
-              <span class="contact-name">Email</span>
-              <span class="contact-detail">
-                shamim.gharaei2002@gmail.com
-              </span>
-            </a>
+            <p class="contact-intro">
+              Feel free to reach out by email or connect with me
+              through LinkedIn and GitHub.
+            </p>
 
-            <a
-              class="contact-card"
-              href="https://www.linkedin.com/in/shamimgharaei"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="contact-name">LinkedIn</span>
-              <span class="contact-detail">
-                shamimgharaei
-              </span>
-            </a>
 
-            <a
-              class="contact-card"
-              href="https://github.com/shamim-gharaei"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="contact-name">GitHub</span>
-              <span class="contact-detail">
-                shamim-gharaei
-              </span>
-            </a>
+            <div class="contact-actions">
+
+              <a
+                href="mailto:shamim.gharaei2002@gmail.com"
+                class="contact-pill pink-contact"
+              >
+                <span>Email</span>
+                <strong>
+                  shamim.gharaei2002@gmail.com
+                </strong>
+              </a>
+
+
+              <a
+                href="https://www.linkedin.com/in/shamimgharaei"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-pill purple-contact"
+              >
+                <span>LinkedIn</span>
+                <strong>
+                  shamimgharaei ↗
+                </strong>
+              </a>
+
+
+              <a
+                href="https://github.com/shamim-gharaei"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-pill green-contact"
+              >
+                <span>GitHub</span>
+                <strong>
+                  shamim-gharaei ↗
+                </strong>
+              </a>
+
+            </div>
 
           </div>
 
@@ -438,10 +620,15 @@
 
 
   <footer class="footer">
+
     <div class="container footer-content">
 
       <p>
         © 2026 Shamim Gharaei
+      </p>
+
+      <p class="footer-note">
+        Academic Portfolio
       </p>
 
       <a href="#">
@@ -449,6 +636,7 @@
       </a>
 
     </div>
+
   </footer>
 
 </body>
