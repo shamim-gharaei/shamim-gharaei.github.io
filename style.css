@@ -388,14 +388,15 @@ a {
   margin: 0 0 24px;
   color: var(--muted);
   font-size: 16px;
+  line-height: 1.7;
 }
 
 .cv-buttons {
   display: flex;
+  align-items: center;
   gap: 14px;
   flex-wrap: wrap;
 }
-
 
 /* Mobile */
 
