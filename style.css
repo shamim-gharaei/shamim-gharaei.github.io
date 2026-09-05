@@ -236,11 +236,8 @@ a {
 
 .section-grid {
   display: grid;
-
   grid-template-columns: 220px 1fr;
-
   gap: 70px;
-
   align-items: start;
 }
 
@@ -785,7 +782,6 @@ a {
 
   .section-grid {
     grid-template-columns: 1fr;
-
     gap: 24px;
   }
 
