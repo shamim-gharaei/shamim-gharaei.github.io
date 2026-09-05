@@ -2,7 +2,6 @@
 <html lang="en" data-theme="light">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -35,41 +34,30 @@
   <link rel="stylesheet" href="style.css">
 
   <script src="script.js" defer></script>
-
 </head>
 
 
 <body>
 
+  <!-- Scroll progress -->
   <div id="scroll-progress"></div>
 
-  <div
-    id="cursor-glow"
-    aria-hidden="true"
-  ></div>
+  <!-- Cursor glow -->
+  <div id="cursor-glow"></div>
 
 
-  <!-- NAVIGATION -->
-
+  <!-- NAVBAR -->
   <header class="navbar">
 
     <div class="container nav-container">
 
       <a href="#home" class="logo">
-
-        <span class="logo-mark">
-          SG
-        </span>
-
-        <span class="logo-name">
-          Shamim Gharaei
-        </span>
-
+        <span class="logo-mark">SG</span>
+        <span class="logo-name">Shamim Gharaei</span>
       </a>
 
 
       <nav class="nav-links">
-
         <a href="#about">About</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
@@ -77,15 +65,14 @@
         <a href="#projects">Projects</a>
         <a href="#cv">CV</a>
         <a href="#contact">Contact</a>
-
       </nav>
 
 
       <button
         id="theme-toggle"
         class="theme-toggle"
-        aria-label="Switch color theme"
-        title="Toggle dark mode"
+        type="button"
+        aria-label="Toggle dark mode"
       >
         ☾
       </button>
@@ -95,100 +82,91 @@
   </header>
 
 
-
   <main>
 
 
     <!-- HERO -->
-
     <section id="home" class="hero">
 
-      <div class="hero-noise"></div>
+      <div class="hero-pattern"></div>
 
-      <div class="hero-orb orb-one"></div>
-      <div class="hero-orb orb-two"></div>
-      <div class="hero-orb orb-three"></div>
+      <div class="hero-orb orb-pink"></div>
+      <div class="hero-orb orb-purple"></div>
+      <div class="hero-orb orb-green"></div>
 
 
       <div class="container hero-grid">
 
 
-        <div class="hero-copy reveal">
+        <!-- HERO LEFT -->
+        <div class="hero-copy entrance">
 
           <div class="hero-badge">
-
             <span class="badge-dot"></span>
-
             Computer Engineering Graduate
-
           </div>
 
 
           <h1>
-
             Hi, I'm
-
             <span class="gradient-name">
               Shamim Gharaei.
             </span>
-
           </h1>
 
 
           <p class="hero-description">
-
             Interested in
             <strong>anomaly detection</strong>,
             <strong>machine learning</strong>,
             and the analysis of
             <strong>network and social-network data</strong>
             through research and practical projects.
-
           </p>
 
 
           <div class="hero-actions">
 
             <a
-              class="primary-btn"
               href="https://github.com/shamim-gharaei"
               target="_blank"
               rel="noopener noreferrer"
+              class="primary-btn"
             >
-
               Explore GitHub
               <span>↗</span>
-
             </a>
 
 
             <a
-              class="secondary-btn"
               href="https://www.linkedin.com/in/shamimgharaei"
               target="_blank"
               rel="noopener noreferrer"
+              class="secondary-btn"
             >
-
               LinkedIn
-
             </a>
 
           </div>
 
 
-          <div class="hero-mini-stats">
+          <div class="hero-stats">
 
-            <div>
+            <div class="stat-item">
               <strong>1</strong>
               <span>Publication</span>
             </div>
 
-            <div>
+            <div class="stat-line"></div>
+
+            <div class="stat-item">
               <strong>2</strong>
               <span>Selected Projects</span>
             </div>
 
-            <div>
+            <div class="stat-line"></div>
+
+            <div class="stat-item">
               <strong>4</strong>
               <span>Research Interests</span>
             </div>
@@ -199,19 +177,18 @@
 
 
 
-        <!-- Interactive Research Map -->
-
+        <!-- HERO RIGHT -->
         <div
-          class="hero-visual reveal"
+          class="hero-visual entrance"
           id="hero-visual"
         >
 
           <div class="research-map-card">
 
+
             <div class="map-card-header">
 
               <div>
-
                 <span class="tiny-label">
                   INTERACTIVE RESEARCH MAP
                 </span>
@@ -219,16 +196,12 @@
                 <strong>
                   Areas of Exploration
                 </strong>
-
               </div>
 
 
-              <div class="live-badge">
-
+              <div class="portfolio-status">
                 <span></span>
-
                 Portfolio
-
               </div>
 
             </div>
@@ -238,8 +211,8 @@
 
               <svg
                 class="network-svg"
-                viewBox="0 0 520 360"
-                aria-label="Interactive research network visualization"
+                viewBox="0 0 520 350"
+                aria-label="Research network"
               >
 
                 <g class="edges">
@@ -265,7 +238,7 @@
                 <g class="nodes">
 
                   <circle
-                    class="graph-node pink-node float-a"
+                    class="graph-node node-pink node-a"
                     data-label="Anomaly Detection"
                     cx="70"
                     cy="85"
@@ -273,7 +246,7 @@
                   />
 
                   <circle
-                    class="graph-node purple-node float-b"
+                    class="graph-node node-purple node-b"
                     data-label="Machine Learning"
                     cx="185"
                     cy="55"
@@ -281,7 +254,7 @@
                   />
 
                   <circle
-                    class="graph-node green-node float-c"
+                    class="graph-node node-green node-c"
                     data-label="Network Analysis"
                     cx="310"
                     cy="100"
@@ -289,15 +262,15 @@
                   />
 
                   <circle
-                    class="graph-node pink-node float-b"
-                    data-label="Security Data"
+                    class="graph-node node-pink node-b"
+                    data-label="Network Data"
                     cx="435"
                     cy="70"
                     r="11"
                   />
 
                   <circle
-                    class="graph-node green-node float-a"
+                    class="graph-node node-green node-a"
                     data-label="Network Intrusion Detection"
                     cx="120"
                     cy="225"
@@ -305,7 +278,7 @@
                   />
 
                   <circle
-                    class="graph-node purple-node float-c"
+                    class="graph-node node-purple node-c"
                     data-label="Social Network Analysis"
                     cx="260"
                     cy="270"
@@ -313,7 +286,7 @@
                   />
 
                   <circle
-                    class="graph-node pink-node float-a"
+                    class="graph-node node-pink node-a"
                     data-label="Anomaly Analysis"
                     cx="410"
                     cy="215"
@@ -335,17 +308,15 @@
             </div>
 
 
-            <div class="map-help">
+            <p class="map-hint">
               Hover over the nodes to explore
-            </div>
+            </p>
 
 
             <div class="map-tags">
-
               <span>Anomaly Detection</span>
               <span>Machine Learning</span>
               <span>Networks</span>
-
             </div>
 
           </div>
@@ -355,16 +326,9 @@
       </div>
 
 
-      <a
-        class="scroll-hint"
-        href="#about"
-        aria-label="Scroll to About section"
-      >
-
+      <a href="#about" class="scroll-hint">
         <span>Scroll</span>
-
         <i></i>
-
       </a>
 
     </section>
@@ -372,59 +336,47 @@
 
 
     <!-- ABOUT -->
-
     <section
       id="about"
-      class="section white-section"
+      class="section section-white"
     >
 
       <div class="container section-layout">
 
-
-        <aside class="section-index reveal">
-
+        <aside class="section-index">
           <span>01</span>
-
           About Me
-
         </aside>
 
 
-        <div class="section-main reveal">
+        <div class="section-main animate-section">
 
           <p class="eyebrow">
             BACKGROUND
           </p>
 
-          <h2>
 
+          <h2>
             Building through
             <span>research and practice.</span>
-
           </h2>
 
 
           <div class="about-grid">
 
-
             <div class="about-text">
 
               <p>
-
                 I'm a Computer Engineering graduate interested
                 in developing my technical and research skills
                 through practical projects.
-
               </p>
 
-
               <p>
-
                 My recent work includes projects on anomaly
                 detection using network and social-network data,
                 as well as an undergraduate research paper on
                 anomaly detection in social networks.
-
               </p>
 
             </div>
@@ -432,14 +384,15 @@
 
             <div class="about-highlights">
 
+              <article class="mini-card">
 
-              <article class="highlight-card">
+                <span class="mini-number">
+                  01
+                </span>
 
-                <span>01</span>
-
-                <strong>
+                <h3>
                   Research
-                </strong>
+                </h3>
 
                 <p>
                   Undergraduate work focused on anomaly detection
@@ -449,20 +402,22 @@
               </article>
 
 
-              <article class="highlight-card">
+              <article class="mini-card">
 
-                <span>02</span>
+                <span class="mini-number">
+                  02
+                </span>
 
-                <strong>
+                <h3>
                   Projects
-                </strong>
+                </h3>
 
                 <p>
-                  Practical work using network and social-network datasets.
+                  Practical work using network and
+                  social-network datasets.
                 </p>
 
               </article>
-
 
             </div>
 
@@ -477,26 +432,20 @@
 
 
     <!-- RESEARCH -->
-
     <section
       id="research"
-      class="section soft-section"
+      class="section section-soft"
     >
 
       <div class="container section-layout">
 
-
-        <aside class="section-index reveal">
-
+        <aside class="section-index">
           <span>02</span>
-
           Research Interests
-
         </aside>
 
 
-        <div class="section-main reveal">
-
+        <div class="section-main animate-section">
 
           <p class="eyebrow">
             INTERESTS
@@ -504,30 +453,18 @@
 
 
           <h2>
-
             Areas I'm
             <span>exploring.</span>
-
           </h2>
 
 
-          <div class="research-cards">
+          <div class="research-grid">
 
+            <article class="research-card research-pink">
 
-            <article
-              class="research-card accent-pink"
-            >
-
-              <div class="research-card-top">
-
-                <div class="research-icon">
-                  ◉
-                </div>
-
-                <span class="card-number">
-                  01
-                </span>
-
+              <div class="research-top">
+                <div class="research-icon">◉</div>
+                <span>01</span>
               </div>
 
               <h3>
@@ -537,20 +474,11 @@
             </article>
 
 
-            <article
-              class="research-card accent-purple"
-            >
+            <article class="research-card research-purple">
 
-              <div class="research-card-top">
-
-                <div class="research-icon">
-                  ◇
-                </div>
-
-                <span class="card-number">
-                  02
-                </span>
-
+              <div class="research-top">
+                <div class="research-icon">◇</div>
+                <span>02</span>
               </div>
 
               <h3>
@@ -560,20 +488,11 @@
             </article>
 
 
-            <article
-              class="research-card accent-green"
-            >
+            <article class="research-card research-green">
 
-              <div class="research-card-top">
-
-                <div class="research-icon">
-                  ⬡
-                </div>
-
-                <span class="card-number">
-                  03
-                </span>
-
+              <div class="research-top">
+                <div class="research-icon">⬡</div>
+                <span>03</span>
               </div>
 
               <h3>
@@ -583,20 +502,11 @@
             </article>
 
 
-            <article
-              class="research-card accent-pink"
-            >
+            <article class="research-card research-pink">
 
-              <div class="research-card-top">
-
-                <div class="research-icon">
-                  ⌘
-                </div>
-
-                <span class="card-number">
-                  04
-                </span>
-
+              <div class="research-top">
+                <div class="research-icon">⌘</div>
+                <span>04</span>
               </div>
 
               <h3>
@@ -604,7 +514,6 @@
               </h3>
 
             </article>
-
 
           </div>
 
@@ -617,26 +526,20 @@
 
 
     <!-- PUBLICATIONS -->
-
     <section
       id="publications"
-      class="section white-section"
+      class="section section-white"
     >
 
       <div class="container section-layout">
 
-
-        <aside class="section-index reveal">
-
+        <aside class="section-index">
           <span>03</span>
-
           Publications
-
         </aside>
 
 
-        <div class="section-main reveal">
-
+        <div class="section-main animate-section">
 
           <p class="eyebrow">
             RESEARCH
@@ -644,28 +547,25 @@
 
 
           <h2>
-
             Selected
             <span>publication.</span>
-
           </h2>
 
 
-          <article class="publication-premium">
+          <article class="publication-card">
+
+            <div class="publication-line"></div>
 
 
-            <div class="publication-gradient-line"></div>
+            <div class="publication-top">
 
+              <div class="publication-tags">
 
-            <div class="publication-meta-top">
-
-              <div>
-
-                <span class="year-pill">
+                <span class="year-tag">
                   2025
                 </span>
 
-                <span class="type-pill">
+                <span class="paper-tag">
                   Conference Paper
                 </span>
 
@@ -674,32 +574,27 @@
 
               <button
                 id="copy-citation"
-                class="citation-button"
+                class="citation-btn"
                 type="button"
               >
-
                 Copy citation
-
               </button>
 
             </div>
 
 
             <h3>
-
               Anomaly Detection in Social Networks:
               A Taxonomy of Methods, Research Challenges,
               and Future Directions
-
             </h3>
 
 
-            <div class="publication-footer">
-
+            <div class="publication-info">
 
               <div>
 
-                <span class="meta-label">
+                <span class="meta-title">
                   AUTHORS
                 </span>
 
@@ -714,16 +609,14 @@
 
               <div>
 
-                <span class="meta-label">
+                <span class="meta-title">
                   VENUE
                 </span>
 
                 <p>
-
                   National Conference on Information Technology,
                   Nanotechnology, Artificial Intelligence and
                   Technological Futures Studies
-
                 </p>
 
               </div>
@@ -732,9 +625,8 @@
 
 
             <p
-              id="citation-status"
-              class="citation-status"
-              aria-live="polite"
+              id="citation-message"
+              class="citation-message"
             ></p>
 
           </article>
@@ -748,26 +640,20 @@
 
 
     <!-- SKILLS -->
-
     <section
       id="skills"
-      class="section soft-section"
+      class="section section-soft"
     >
 
       <div class="container section-layout">
 
-
-        <aside class="section-index reveal">
-
+        <aside class="section-index">
           <span>04</span>
-
           Skills & Tools
-
         </aside>
 
 
-        <div class="section-main reveal">
-
+        <div class="section-main animate-section">
 
           <p class="eyebrow">
             TOOLKIT
@@ -775,48 +661,44 @@
 
 
           <h2>
-
             Technical
             <span>skills.</span>
-
           </h2>
 
 
-          <div class="skills-premium-grid">
+          <div class="skills-grid">
 
 
-            <article class="skill-premium-card">
+            <article class="skill-card">
 
-              <div class="skill-heading">
+              <div class="skill-header">
 
-                <div class="skill-symbol symbol-pink">
+                <div class="skill-icon icon-pink">
                   &lt;/&gt;
                 </div>
 
                 <h3>
-                  Programming
+                  Programming Languages
                 </h3>
 
               </div>
 
-              <div class="skills-list">
-
+              <div class="skill-tags">
                 <span>Python</span>
                 <span>C</span>
                 <span>C++</span>
                 <span>Java</span>
-
               </div>
 
             </article>
 
 
 
-            <article class="skill-premium-card">
+            <article class="skill-card">
 
-              <div class="skill-heading">
+              <div class="skill-header">
 
-                <div class="skill-symbol symbol-purple">
+                <div class="skill-icon icon-purple">
                   ◇
                 </div>
 
@@ -826,26 +708,24 @@
 
               </div>
 
-              <div class="skills-list">
-
+              <div class="skill-tags">
                 <span>NumPy</span>
                 <span>Pandas</span>
                 <span>scikit-learn</span>
                 <span>Matplotlib</span>
                 <span>NetworkX</span>
-                <span>Jupyter</span>
-
+                <span>Jupyter Notebook</span>
               </div>
 
             </article>
 
 
 
-            <article class="skill-premium-card">
+            <article class="skill-card">
 
-              <div class="skill-heading">
+              <div class="skill-header">
 
-                <div class="skill-symbol symbol-green">
+                <div class="skill-icon icon-green">
                   ⚙
                 </div>
 
@@ -855,24 +735,22 @@
 
               </div>
 
-              <div class="skills-list">
-
+              <div class="skill-tags">
                 <span>Git</span>
                 <span>GitHub</span>
                 <span>Linux</span>
                 <span>LaTeX</span>
-
               </div>
 
             </article>
 
 
 
-            <article class="skill-premium-card">
+            <article class="skill-card">
 
-              <div class="skill-heading">
+              <div class="skill-header">
 
-                <div class="skill-symbol symbol-pink">
+                <div class="skill-icon icon-pink">
                   ▤
                 </div>
 
@@ -882,24 +760,20 @@
 
               </div>
 
-              <div class="skills-list">
-
+              <div class="skill-tags">
                 <span>PostgreSQL</span>
                 <span>MySQL</span>
-
               </div>
 
             </article>
 
 
 
-            <article
-              class="skill-premium-card full-skill-card"
-            >
+            <article class="skill-card skill-wide">
 
-              <div class="skill-heading">
+              <div class="skill-header">
 
-                <div class="skill-symbol symbol-purple">
+                <div class="skill-icon icon-purple">
                   ◎
                 </div>
 
@@ -909,12 +783,10 @@
 
               </div>
 
-              <div class="skills-list">
-
+              <div class="skill-tags">
                 <span>HTML</span>
                 <span>CSS</span>
                 <span>Django</span>
-
               </div>
 
             </article>
@@ -931,29 +803,22 @@
 
 
     <!-- PROJECTS -->
-
     <section
       id="projects"
-      class="section white-section"
+      class="section section-white"
     >
 
       <div class="container section-layout">
 
-
-        <aside class="section-index reveal">
-
+        <aside class="section-index">
           <span>05</span>
-
           GitHub Projects
-
         </aside>
 
 
-        <div class="section-main reveal">
+        <div class="section-main animate-section">
 
-
-          <div class="projects-top-row">
-
+          <div class="projects-heading">
 
             <div>
 
@@ -962,17 +827,13 @@
               </p>
 
               <h2>
-
                 Selected
                 <span>projects.</span>
-
               </h2>
 
               <p class="section-description">
-
                 A selection of my recent technical
                 and research projects.
-
               </p>
 
             </div>
@@ -982,13 +843,9 @@
               href="https://github.com/shamim-gharaei?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
-              class="view-all-link"
+              class="all-repositories"
             >
-
-              All repositories
-
-              <span>↗</span>
-
+              All repositories ↗
             </a>
 
           </div>
@@ -998,11 +855,9 @@
             id="github-projects"
             class="projects-grid"
           >
-
             <p class="projects-message">
               Loading GitHub projects...
             </p>
-
           </div>
 
         </div>
@@ -1014,29 +869,22 @@
 
 
     <!-- CV -->
-
     <section
       id="cv"
-      class="section soft-section"
+      class="section section-soft"
     >
 
       <div class="container section-layout">
 
-
-        <aside class="section-index reveal">
-
+        <aside class="section-index">
           <span>06</span>
-
           CV
-
         </aside>
 
 
-        <div class="section-main reveal">
+        <div class="section-main animate-section">
 
-
-          <div class="cv-premium-card">
-
+          <div class="cv-card">
 
             <div>
 
@@ -1049,9 +897,7 @@
               </h2>
 
               <p>
-
                 View or download my current academic CV.
-
               </p>
 
             </div>
@@ -1059,29 +905,22 @@
 
             <div class="cv-actions">
 
-
               <a
                 href="cv.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="primary-btn"
               >
-
                 View CV
-
               </a>
-
 
               <a
                 href="cv.pdf"
                 download
                 class="secondary-btn"
               >
-
                 Download CV
-
               </a>
-
 
             </div>
 
@@ -1096,19 +935,16 @@
 
 
     <!-- CONTACT -->
-
     <section
       id="contact"
-      class="section contact-section"
+      class="contact-section"
     >
 
       <div class="container">
 
+        <div class="contact-card-main animate-section">
 
-        <div class="contact-premium reveal">
-
-
-          <div class="contact-glow"></div>
+          <div class="contact-decoration"></div>
 
 
           <p class="eyebrow">
@@ -1117,18 +953,14 @@
 
 
           <h2>
-
             Let's
             <span>connect.</span>
-
           </h2>
 
 
-          <p class="contact-copy">
-
-            Feel free to reach out by email
-            or connect with me through LinkedIn and GitHub.
-
+          <p class="contact-description">
+            Feel free to reach out by email or connect with me
+            through LinkedIn and GitHub.
           </p>
 
 
@@ -1137,10 +969,10 @@
 
             <a
               href="mailto:shamim.gharaei2002@gmail.com"
-              class="contact-box"
+              class="contact-item"
             >
 
-              <span class="contact-type">
+              <span class="contact-label">
                 EMAIL
               </span>
 
@@ -1148,22 +980,19 @@
                 shamim.gharaei2002@gmail.com
               </strong>
 
-              <span class="contact-arrow">
-                ↗
-              </span>
+              <i>↗</i>
 
             </a>
-
 
 
             <a
               href="https://www.linkedin.com/in/shamimgharaei"
               target="_blank"
               rel="noopener noreferrer"
-              class="contact-box"
+              class="contact-item"
             >
 
-              <span class="contact-type">
+              <span class="contact-label">
                 LINKEDIN
               </span>
 
@@ -1171,22 +1000,19 @@
                 shamimgharaei
               </strong>
 
-              <span class="contact-arrow">
-                ↗
-              </span>
+              <i>↗</i>
 
             </a>
-
 
 
             <a
               href="https://github.com/shamim-gharaei"
               target="_blank"
               rel="noopener noreferrer"
-              class="contact-box"
+              class="contact-item"
             >
 
-              <span class="contact-type">
+              <span class="contact-label">
                 GITHUB
               </span>
 
@@ -1194,9 +1020,7 @@
                 shamim-gharaei
               </strong>
 
-              <span class="contact-arrow">
-                ↗
-              </span>
+              <i>↗</i>
 
             </a>
 
@@ -1219,7 +1043,6 @@
     class="back-to-top"
     type="button"
     aria-label="Back to top"
-    title="Back to top"
   >
     ↑
   </button>
@@ -1228,7 +1051,7 @@
 
   <footer class="footer">
 
-    <div class="container footer-inner">
+    <div class="container footer-content">
 
       <span>
         © 2026 Shamim Gharaei
