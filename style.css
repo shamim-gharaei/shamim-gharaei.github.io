@@ -12,6 +12,9 @@
   --border: #eeeaf1;
 }
 
+
+/* General */
+
 * {
   box-sizing: border-box;
 }
@@ -144,7 +147,11 @@ a {
   gap: 14px;
 }
 
+
+/* Buttons */
+
 .button {
+  display: inline-block;
   padding: 10px 22px;
   border-radius: 999px;
   font-size: 14px;
@@ -171,19 +178,7 @@ a {
 }
 
 
-/* About */
-
-.about-section {
-  padding: 90px 0;
-  background: #ffffff;
-}
-
-.about-container {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 70px;
-  align-items: start;
-}
+/* Shared Section Label */
 
 .section-label {
   color: var(--muted);
@@ -196,6 +191,21 @@ a {
   display: inline-block;
   margin-right: 8px;
   color: var(--pink);
+}
+
+
+/* About */
+
+.about-section {
+  padding: 90px 0;
+  background: #ffffff;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 70px;
+  align-items: start;
 }
 
 .about-content {
@@ -252,13 +262,10 @@ a {
   padding: 10px 18px;
   border: 1px solid var(--border);
   border-radius: 999px;
-
   background: #ffffff;
   color: var(--text);
-
   font-size: 15px;
   font-weight: 500;
-
   transition: 0.2s ease;
 }
 
@@ -325,9 +332,7 @@ a {
 
 .publication-year {
   margin: 0 0 10px;
-
   color: var(--purple);
-
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -335,29 +340,25 @@ a {
 
 .publication-card h3 {
   margin: 0 0 16px;
-
   color: var(--dark);
-
   font-size: 22px;
   line-height: 1.5;
 }
 
 .publication-authors {
   margin: 0 0 10px;
-
   color: var(--text);
-
   font-size: 15px;
 }
 
 .publication-venue {
   margin: 0;
-
   color: var(--muted);
-
   font-size: 15px;
   line-height: 1.7;
 }
+
+
 /* CV */
 
 .cv-section {
@@ -395,6 +396,7 @@ a {
   flex-wrap: wrap;
 }
 
+
 /* Mobile */
 
 @media (max-width: 700px) {
@@ -420,44 +422,23 @@ a {
     padding: 80px 0;
   }
 
-  .about-container {
+  .about-container,
+  .research-container,
+  .publications-container,
+  .cv-container {
     grid-template-columns: 1fr;
     gap: 24px;
   }
 
-  .about-section {
-    padding: 80px 0;
-  }
-
-  .research-container {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .research-section {
-    padding: 80px 0;
-  }
-
-  .publications-container {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .publications-section {
+  .about-section,
+  .research-section,
+  .publications-section,
+  .cv-section {
     padding: 80px 0;
   }
 
   .publication-card {
     padding: 22px;
-  }
-
-    .cv-container {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .cv-section {
-    padding: 80px 0;
   }
 
 }
