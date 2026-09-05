@@ -357,7 +357,82 @@ a {
   font-size: 15px;
   line-height: 1.7;
 }
+/* Skills & Tools */
 
+.skills-section {
+  padding: 90px 0;
+  background: var(--soft-background);
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.skills-content {
+  max-width: 760px;
+}
+
+.skills-content h2 {
+  margin: 0 0 32px;
+  color: var(--dark);
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.2;
+}
+
+.skill-group {
+  margin-bottom: 28px;
+}
+
+.skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.skill-group h3 {
+  margin: 0 0 12px;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tags span {
+  display: inline-block;
+  padding: 8px 14px;
+
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+
+  transition: 0.2s ease;
+}
+
+.skill-tags span:nth-child(3n+1) {
+  border-color: rgba(255, 143, 177, 0.45);
+}
+
+.skill-tags span:nth-child(3n+2) {
+  border-color: rgba(167, 139, 250, 0.45);
+}
+
+.skill-tags span:nth-child(3n+3) {
+  border-color: rgba(183, 228, 199, 0.90);
+}
+
+.skill-tags span:hover {
+  transform: translateY(-2px);
+}
 
 /* CV */
 
@@ -521,20 +596,22 @@ a {
     padding: 80px 0;
   }
 
-  .about-container,
-  .research-container,
-  .publications-container,
-  .cv-container,
-  .contact-container {
+.about-container,
+.research-container,
+.publications-container,
+.skills-container,
+.cv-container,
+.contact-container {
     grid-template-columns: 1fr;
     gap: 24px;
   }
 
-  .about-section,
-  .research-section,
-  .publications-section,
-  .cv-section,
-  .contact-section {
+.about-section,
+.research-section,
+.publications-section,
+.skills-section,
+.cv-section,
+.contact-section {
     padding: 80px 0;
   }
 
