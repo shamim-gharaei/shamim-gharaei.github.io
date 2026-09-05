@@ -2648,4 +2648,10 @@ html[data-theme="dark"]
 
   }
 
+  /* FIX: keep all content visible */
+.reveal {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
 }
