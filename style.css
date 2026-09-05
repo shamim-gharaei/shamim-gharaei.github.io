@@ -358,7 +358,42 @@ a {
   font-size: 15px;
   line-height: 1.7;
 }
+/* CV */
 
+.cv-section {
+  padding: 90px 0;
+  background: var(--soft-background);
+}
+
+.cv-container {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.cv-content {
+  max-width: 720px;
+}
+
+.cv-content h2 {
+  margin: 0 0 18px;
+  color: var(--dark);
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.2;
+}
+
+.cv-content p {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.cv-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
 
 /* Mobile */
 
@@ -414,6 +449,15 @@ a {
 
   .publication-card {
     padding: 22px;
+  }
+
+    .cv-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .cv-section {
+    padding: 80px 0;
   }
 
 }
