@@ -388,15 +388,113 @@ a {
   margin: 0 0 24px;
   color: var(--muted);
   font-size: 16px;
-  line-height: 1.7;
 }
 
 .cv-buttons {
   display: flex;
-  align-items: center;
   gap: 14px;
   flex-wrap: wrap;
 }
+
+
+/* Contact */
+
+.contact-section {
+  padding: 90px 0;
+  background: #ffffff;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.contact-content {
+  max-width: 760px;
+}
+
+.contact-content h2 {
+  margin: 0 0 18px;
+  color: var(--dark);
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.2;
+}
+
+.contact-intro {
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-size: 16px;
+  max-width: 600px;
+}
+
+.contact-links {
+  display: grid;
+  gap: 14px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  padding: 18px 22px;
+
+  background: var(--soft-background);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  transition: 0.2s ease;
+}
+
+.contact-card:nth-child(1) {
+  border-color: rgba(255, 143, 177, 0.45);
+}
+
+.contact-card:nth-child(2) {
+  border-color: rgba(167, 139, 250, 0.45);
+}
+
+.contact-card:nth-child(3) {
+  border-color: rgba(183, 228, 199, 0.95);
+}
+
+.contact-card:hover {
+  transform: translateY(-2px);
+}
+
+.contact-name {
+  color: var(--dark);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.contact-detail {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+
+/* Footer */
+
+.footer {
+  border-top: 1px solid var(--border);
+  background: var(--soft-background);
+}
+
+.footer-content {
+  padding: 24px 0;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 
 /* Mobile */
 
@@ -426,7 +524,8 @@ a {
   .about-container,
   .research-container,
   .publications-container,
-  .cv-container {
+  .cv-container,
+  .contact-container {
     grid-template-columns: 1fr;
     gap: 24px;
   }
@@ -434,7 +533,8 @@ a {
   .about-section,
   .research-section,
   .publications-section,
-  .cv-section {
+  .cv-section,
+  .contact-section {
     padding: 80px 0;
   }
 
@@ -442,13 +542,10 @@ a {
     padding: 22px;
   }
 
-    .cv-container {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .cv-section {
-    padding: 80px 0;
+  .contact-card {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
   }
 
 }
