@@ -442,4 +442,13 @@ a {
     padding: 22px;
   }
 
+    .cv-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .cv-section {
+    padding: 80px 0;
+  }
+
 }
