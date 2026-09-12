@@ -4,31 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shamim Gharaei | Academic Portfolio</title>
-  <meta name="description" content="Academic portfolio of Shamim Gharaei, Computer Engineering graduate.">
-  <meta name="theme-color" content="#a78bfa">
+  <meta name="description" content="Academic portfolio of Shamim Gharaei, Computer Engineering graduate, featuring research interests, projects, publication, experience, and selected credentials.">
+  <meta name="theme-color" content="#9b7bf4">
+  <meta property="og:title" content="Shamim Gharaei | Academic Portfolio">
+  <meta property="og:description" content="Computer Engineering graduate interested in anomaly detection, machine learning, and network and social-network analysis.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shamim-gharaei.github.io/">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://shamim-gharaei.github.io/">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23ff8fb1'/%3E%3Cstop offset='1' stop-color='%23a78bfa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='28' fill='url(%23g)'/%3E%3Ctext x='50' y='61' font-family='Arial' font-size='34' font-weight='700' text-anchor='middle' fill='white'%3ESG%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23ff8fb1'/%3E%3Cstop offset='.55' stop-color='%239b7bf4'/%3E%3Cstop offset='1' stop-color='%23b7e4c7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='28' fill='url(%23g)'/%3E%3Ctext x='50' y='61' font-family='Arial' font-size='34' font-weight='700' text-anchor='middle' fill='white'%3ESG%3C/text%3E%3C/svg%3E">
 
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <div id="cursor-glow" aria-hidden="true"></div>
 
-  <div id="scroll-progress"></div>
-  <div id="cursor-glow"></div>
-
-  <header class="navbar">
+  <header class="navbar" id="top">
     <div class="container nav-container">
       <a href="#home" class="logo" aria-label="Shamim Gharaei home">
         <span class="logo-mark">SG</span>
         <span class="logo-name">Shamim Gharaei</span>
       </a>
 
-      <nav class="nav-links" aria-label="Primary navigation">
+      <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
         <a href="#about" data-en="About" data-fr="Profil">About</a>
         <a href="#education" data-en="Education" data-fr="Formation">Education</a>
         <a href="#research" data-en="Research" data-fr="Intérêts">Research</a>
@@ -42,24 +48,26 @@
       </nav>
 
       <div class="nav-actions">
-        <div class="language-switch" aria-label="Language switcher">
-          <button class="language-button active" type="button" data-lang="en">EN</button>
-          <span>/</span>
-          <button class="language-button" type="button" data-lang="fr">FR</button>
+        <div class="language-switch" aria-label="Site language">
+          <button class="language-button active" type="button" data-lang="en" aria-pressed="true">EN</button>
+          <span aria-hidden="true">/</span>
+          <button class="language-button" type="button" data-lang="fr" aria-pressed="false">FR</button>
         </div>
         <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode">☾</button>
+        <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
 
-  <main>
-
+  <main id="main-content">
     <!-- HERO -->
     <section id="home" class="hero">
-      <div class="hero-grid-pattern"></div>
-      <div class="hero-orb orb-one"></div>
-      <div class="hero-orb orb-two"></div>
-      <div class="hero-orb orb-three"></div>
+      <div class="hero-grid-pattern" aria-hidden="true"></div>
+      <div class="hero-orb orb-one" aria-hidden="true"></div>
+      <div class="hero-orb orb-two" aria-hidden="true"></div>
+      <div class="hero-orb orb-three" aria-hidden="true"></div>
 
       <div class="container hero-layout">
         <div class="hero-copy hero-enter">
@@ -81,8 +89,7 @@
 
           <div class="hero-actions">
             <a href="https://github.com/shamim-gharaei" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <span data-en="Explore GitHub" data-fr="Voir GitHub">Explore GitHub</span>
-              <span>↗</span>
+              <span data-en="Explore GitHub" data-fr="Voir GitHub">Explore GitHub</span><span>↗</span>
             </a>
             <a href="https://www.linkedin.com/in/shamimgharaei" target="_blank" rel="noopener noreferrer" class="btn btn-green">LinkedIn</a>
             <a href="cv.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
@@ -90,7 +97,7 @@
             </a>
           </div>
 
-          <div class="hero-stats">
+          <div class="hero-stats" aria-label="Portfolio overview">
             <div class="stat"><strong>01</strong><span data-en="Publication" data-fr="Publication">Publication</span></div>
             <div class="stat-divider"></div>
             <div class="stat"><strong>02</strong><span data-en="Selected Projects" data-fr="Projets sélectionnés">Selected Projects</span></div>
@@ -110,7 +117,7 @@
             </div>
 
             <div class="network-wrapper">
-              <svg class="network-svg" viewBox="0 0 520 350" aria-label="Research interests network">
+              <svg class="network-svg" viewBox="0 0 520 350" role="img" aria-label="Research interests network">
                 <g class="edges">
                   <line x1="70" y1="85" x2="185" y2="55"/>
                   <line x1="185" y1="55" x2="310" y2="100"/>
@@ -160,16 +167,16 @@
           </h2>
 
           <div class="bio-layout">
-            <div class="bio-main-card">
+            <article class="bio-main-card">
               <p data-en="I'm a Computer Engineering graduate interested in developing my technical skills through practical work. My recent projects have involved anomaly detection using network and social-network data, while my undergraduate research focused on anomaly detection in social networks."
-                 data-fr="Je suis diplômée en génie informatique et je m'intéresse au développement de mes compétences techniques à travers des projets pratiques. Mes projets récents portent sur la détection d'anomalies dans des données de réseau et de réseaux sociaux, tandis que mes travaux de premier cycle se sont concentrés sur la détection d'anomalies dans les réseaux sociaux.">
+                 data-fr="Je suis diplômée en génie informatique et je développe mes compétences techniques à travers des projets pratiques. Mes projets récents portent sur la détection d'anomalies dans des données de réseau et de réseaux sociaux, tandis que mes travaux de premier cycle se sont concentrés sur la détection d'anomalies dans les réseaux sociaux.">
                 I'm a Computer Engineering graduate interested in developing my technical skills through practical work. My recent projects have involved anomaly detection using network and social-network data, while my undergraduate research focused on anomaly detection in social networks.
               </p>
-              <p data-en="Alongside my academic work, I have experience assisting with an undergraduate C++ programming course. I also handle day-to-day IT and digital support tasks in a school environment. I'm currently strengthening my technical foundation and preparing for graduate applications."
-                 data-fr="En parallèle de mon parcours académique, j’ai contribué à un cours de programmation C++ de premier cycle en tant qu’assistante d’enseignement. Je prends également en charge des tâches quotidiennes de support informatique et numérique dans un établissement scolaire. Je renforce actuellement mes bases techniques tout en préparant mes candidatures aux études supérieures.">
-                Alongside my academic work, I have experience assisting with an undergraduate C++ programming course. I also handle day-to-day IT and digital support tasks in a school environment. I'm currently strengthening my technical foundation and preparing for graduate applications.
+              <p data-en="I also assisted with an undergraduate C++ programming course. I'm currently strengthening my technical foundation and preparing for graduate applications."
+                 data-fr="J'ai également contribué à un cours de programmation C++ de premier cycle en tant qu'assistante d'enseignement. Je renforce actuellement mes bases techniques tout en préparant mes candidatures aux études supérieures.">
+                I also assisted with an undergraduate C++ programming course. I'm currently strengthening my technical foundation and preparing for graduate applications.
               </p>
-            </div>
+            </article>
 
             <div class="bio-side-stack">
               <div class="profile-note note-pink">
@@ -177,12 +184,12 @@
                 <strong data-en="Strengthening technical foundations" data-fr="Renforcer mes bases techniques">Strengthening technical foundations</strong>
               </div>
               <div class="profile-note note-purple">
-                <span data-en="NEXT STEP" data-fr="PROCHAINE ÉTAPE">NEXT STEP</span>
-                <strong data-en="Preparing for graduate applications" data-fr="Préparation des candidatures aux études supérieures">Preparing for graduate applications</strong>
+                <span data-en="ACADEMIC INTEREST" data-fr="INTÉRÊT ACADÉMIQUE">ACADEMIC INTEREST</span>
+                <strong data-en="Anomaly detection & networked data" data-fr="Détection d'anomalies & données en réseau">Anomaly detection & networked data</strong>
               </div>
               <div class="profile-note note-green">
-                <span data-en="WORKING STYLE" data-fr="APPROCHE">WORKING STYLE</span>
-                <strong data-en="Learning through practical projects" data-fr="Apprendre par des projets pratiques">Learning through practical projects</strong>
+                <span data-en="NEXT STEP" data-fr="PROCHAINE ÉTAPE">NEXT STEP</span>
+                <strong data-en="Preparing graduate applications" data-fr="Préparer mes candidatures aux études supérieures">Preparing graduate applications</strong>
               </div>
             </div>
           </div>
@@ -203,10 +210,11 @@
           </h2>
 
           <article class="education-card">
-            <div class="education-icon">🎓</div>
+            <div class="education-rail" aria-hidden="true"><span>20</span><span>26</span></div>
+            <div class="education-icon" aria-hidden="true">⌁</div>
             <div class="education-main">
               <div class="education-top">
-                <span class="education-type" data-en="BACHELOR'S DEGREE" data-fr="BACCALAURÉAT UNIVERSITAIRE">BACHELOR'S DEGREE</span>
+                <span class="education-type" data-en="BACHELOR'S DEGREE" data-fr="DIPLÔME DE PREMIER CYCLE">BACHELOR'S DEGREE</span>
                 <span class="education-date">Sep 2020 — May 2026</span>
               </div>
               <h3>B.Sc. in Computer Engineering</h3>
@@ -234,7 +242,7 @@
             <span class="accent-text" data-en="interested in." data-fr="m'intéressent.">interested in.</span>
           </h2>
 
-          <div class="interest-grid compact-interest-grid">
+          <div class="interest-grid">
             <article class="interest-card accent-pink">
               <span class="interest-number">01</span>
               <div class="interest-symbol">◉</div>
@@ -262,7 +270,7 @@
               </div>
             </article>
 
-            <article class="interest-card accent-pink">
+            <article class="interest-card accent-mix">
               <span class="interest-number">04</span>
               <div class="interest-symbol">⌘</div>
               <div>
@@ -288,19 +296,19 @@
           </h2>
 
           <article class="publication-feature-card">
-            <div class="publication-glow publication-glow-one"></div>
-            <div class="publication-glow publication-glow-two"></div>
+            <div class="publication-glow publication-glow-one" aria-hidden="true"></div>
+            <div class="publication-glow publication-glow-two" aria-hidden="true"></div>
 
+            <div class="publication-number" aria-hidden="true">01</div>
             <div class="publication-card-head">
               <div class="publication-badges">
                 <span class="tag-year">2025</span>
                 <span class="tag-paper" data-en="Conference Paper" data-fr="Article de conférence">Conference Paper</span>
               </div>
-              <span class="publication-mark">✦</span>
+              <span class="publication-mark" aria-hidden="true">✦</span>
             </div>
 
             <h3>Anomaly Detection in Social Networks: A Taxonomy of Methods, Research Challenges, and Future Directions</h3>
-
             <p class="publication-authors">F. Dabaghi-Zarandi, <strong>S. Gharaei</strong>, A. Zeynali</p>
             <p class="publication-venue">National Conference on Information Technology, Nanotechnology, Artificial Intelligence and Technological Futures Studies</p>
 
@@ -311,18 +319,13 @@
             </p>
 
             <div class="publication-actions">
-              <button class="btn btn-primary" type="button" data-open-paper>
-                <span data-en="Explore paper" data-fr="Explorer l'article">Explore paper</span> ↗
+              <button type="button" class="btn btn-primary" data-open-paper>
+                <span data-en="Explore paper" data-fr="Explorer l'article">Explore paper</span><span>↗</span>
               </button>
-              <a href="assets/paper.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-                <span data-en="View PDF" data-fr="Voir le PDF">View PDF</span>
-              </a>
-              <button class="btn btn-soft" type="button" id="copy-citation">
-                <span data-en="Copy citation" data-fr="Copier la référence">Copy citation</span>
-              </button>
+              <a href="assets/paper.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><span data-en="View PDF" data-fr="Voir le PDF">View PDF</span></a>
+              <button type="button" class="btn btn-soft" id="copy-citation"><span data-en="Copy citation" data-fr="Copier la référence">Copy citation</span></button>
             </div>
-
-            <p id="citation-message" class="citation-message" aria-live="polite"></p>
+            <p class="citation-message" id="citation-message" aria-live="polite"></p>
           </article>
         </div>
       </div>
@@ -336,18 +339,56 @@
         <div class="section-content reveal">
           <div class="projects-heading">
             <div>
-              <p class="eyebrow" data-en="SELECTED WORK" data-fr="TRAVAUX SÉLECTIONNÉS">SELECTED WORK</p>
+              <p class="eyebrow" data-en="SELECTED WORK" data-fr="PROJETS SÉLECTIONNÉS">SELECTED WORK</p>
               <h2 class="section-title">
                 <span data-en="Selected" data-fr="Projets">Selected</span>
                 <span class="accent-text" data-en="projects." data-fr="sélectionnés.">projects.</span>
               </h2>
-              <p class="section-subtitle" data-en="Recent technical projects available on my GitHub profile." data-fr="Projets techniques récents disponibles sur mon profil GitHub.">Recent technical projects available on my GitHub profile.</p>
+              <p class="section-subtitle" data-en="Two recent projects that reflect the technical areas I've been exploring." data-fr="Deux projets récents qui reflètent les domaines techniques que j'ai explorés.">Two recent projects that reflect the technical areas I've been exploring.</p>
             </div>
             <a href="https://github.com/shamim-gharaei?tab=repositories" target="_blank" rel="noopener noreferrer" class="repositories-link"><span data-en="View all repositories" data-fr="Voir tous les dépôts">View all repositories</span> ↗</a>
           </div>
 
-          <div id="github-projects" class="projects-grid">
-            <p class="projects-message">Loading GitHub projects...</p>
+          <div class="projects-grid" id="github-projects">
+            <a class="project-card project-card-network" href="https://github.com/shamim-gharaei/network-intrusion-anomaly-detection" target="_blank" rel="noopener noreferrer" data-repo="network-intrusion-anomaly-detection">
+              <div class="project-visual network-preview" aria-hidden="true">
+                <div class="traffic-line traffic-line-a"></div>
+                <div class="traffic-line traffic-line-b"></div>
+                <div class="traffic-line traffic-line-c"></div>
+                <div class="traffic-node traffic-node-a"></div>
+                <div class="traffic-node traffic-node-b"></div>
+                <div class="traffic-node traffic-node-c"></div>
+                <span class="preview-chip">CICIDS2017</span>
+              </div>
+              <div class="project-body">
+                <div class="project-title-row">
+                  <div class="project-icon">GH</div>
+                  <h3>Network Intrusion Anomaly Detection</h3>
+                  <span class="project-arrow">↗</span>
+                </div>
+                <p class="project-description" data-en="A machine-learning project exploring PortScan detection using network-traffic data from CICIDS2017." data-fr="Un projet d'apprentissage automatique explorant la détection de PortScan à partir de données de trafic réseau CICIDS2017.">A machine-learning project exploring PortScan detection using network-traffic data from CICIDS2017.</p>
+                <div class="project-tech"><span>Python</span><span>Pandas</span><span>scikit-learn</span><span>CICIDS2017</span></div>
+                <div class="project-meta"><span class="repo-language">Jupyter Notebook</span><span class="repo-stars">GitHub</span><span class="repo-updated" data-en="Public repository" data-fr="Dépôt public">Public repository</span></div>
+              </div>
+            </a>
+
+            <a class="project-card project-card-graph" href="https://github.com/shamim-gharaei/social-network-anomaly-analysis" target="_blank" rel="noopener noreferrer" data-repo="social-network-anomaly-analysis">
+              <div class="project-visual graph-preview" aria-hidden="true">
+                <span class="g-edge e1"></span><span class="g-edge e2"></span><span class="g-edge e3"></span><span class="g-edge e4"></span><span class="g-edge e5"></span>
+                <span class="g-node n1"></span><span class="g-node n2"></span><span class="g-node n3"></span><span class="g-node n4"></span><span class="g-node n5"></span>
+                <span class="preview-chip">NetworkX</span>
+              </div>
+              <div class="project-body">
+                <div class="project-title-row">
+                  <div class="project-icon">GH</div>
+                  <h3>Social Network Anomaly Analysis</h3>
+                  <span class="project-arrow">↗</span>
+                </div>
+                <p class="project-description" data-en="A graph-based project exploring structural characteristics and anomaly identification in social-network data using Python and NetworkX." data-fr="Un projet fondé sur les graphes explorant les caractéristiques structurelles et l'identification d'anomalies dans des données de réseaux sociaux avec Python et NetworkX.">A graph-based project exploring structural characteristics and anomaly identification in social-network data using Python and NetworkX.</p>
+                <div class="project-tech"><span>Python</span><span>NetworkX</span><span>Graph Analysis</span></div>
+                <div class="project-meta"><span class="repo-language">Jupyter Notebook</span><span class="repo-stars">GitHub</span><span class="repo-updated" data-en="Public repository" data-fr="Dépôt public">Public repository</span></div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -359,7 +400,7 @@
         <aside class="section-index"><span>06</span><span data-en="Skills" data-fr="Compétences">Skills</span></aside>
 
         <div class="section-content reveal">
-          <div class="skills-heading-row">
+          <div class="skills-heading">
             <div>
               <p class="eyebrow" data-en="TECHNICAL TOOLKIT" data-fr="OUTILS TECHNIQUES">TECHNICAL TOOLKIT</p>
               <h2 class="section-title">
@@ -367,62 +408,37 @@
                 <span class="accent-text" data-en="skills." data-fr="techniques.">skills.</span>
               </h2>
             </div>
-            <p class="skills-note" data-en="Tools and technologies I've used in coursework, projects, and technical work." data-fr="Outils et technologies utilisés dans mes cours, projets et travaux techniques.">Tools and technologies I've used in coursework, projects, and technical work.</p>
+            <p class="skills-note" data-en="Tools and technologies I've used in coursework, projects, and technical work." data-fr="Outils et technologies que j'ai utilisés dans mes cours, projets et travaux techniques.">Tools and technologies I've used in coursework, projects, and technical work.</p>
           </div>
 
-          <div class="skills-grid strong-skills-grid">
-            <article class="skill-card skill-card-pink">
-              <div class="skill-title-row">
-                <span class="skill-icon icon-pink">&lt;/&gt;</span>
-                <div>
-                  <span class="skill-kicker" data-en="CODE" data-fr="CODE">CODE</span>
-                  <h3 data-en="Programming Languages" data-fr="Langages de programmation">Programming Languages</h3>
-                </div>
-              </div>
+          <div class="skills-grid">
+            <article class="skill-card skill-pink">
+              <div class="skill-topline"><span class="skill-icon">&lt;/&gt;</span><span class="skill-kicker">CODE</span></div>
+              <h3 data-en="Programming Languages" data-fr="Langages de programmation">Programming Languages</h3>
               <div class="skill-tags"><span>Python</span><span>C</span><span>C++</span><span>Java</span></div>
             </article>
 
-            <article class="skill-card skill-card-purple">
-              <div class="skill-title-row">
-                <span class="skill-icon icon-purple">◇</span>
-                <div>
-                  <span class="skill-kicker" data-en="DATA" data-fr="DONNÉES">DATA</span>
-                  <h3 data-en="Libraries & Data Tools" data-fr="Bibliothèques & outils de données">Libraries & Data Tools</h3>
-                </div>
-              </div>
+            <article class="skill-card skill-purple">
+              <div class="skill-topline"><span class="skill-icon">◇</span><span class="skill-kicker">DATA</span></div>
+              <h3 data-en="Libraries & Data Tools" data-fr="Bibliothèques & outils de données">Libraries & Data Tools</h3>
               <div class="skill-tags"><span>NumPy</span><span>Pandas</span><span>scikit-learn</span><span>Matplotlib</span><span>NetworkX</span><span>Jupyter Notebook</span></div>
             </article>
 
-            <article class="skill-card skill-card-green">
-              <div class="skill-title-row">
-                <span class="skill-icon icon-green">⚙</span>
-                <div>
-                  <span class="skill-kicker" data-en="WORKFLOW" data-fr="OUTILS">WORKFLOW</span>
-                  <h3 data-en="Tools" data-fr="Outils">Tools</h3>
-                </div>
-              </div>
+            <article class="skill-card skill-green">
+              <div class="skill-topline"><span class="skill-icon">⚙</span><span class="skill-kicker">TOOLS</span></div>
+              <h3 data-en="Development Tools" data-fr="Outils de développement">Development Tools</h3>
               <div class="skill-tags"><span>Git</span><span>GitHub</span><span>Linux</span><span>LaTeX</span></div>
             </article>
 
-            <article class="skill-card skill-card-rose">
-              <div class="skill-title-row">
-                <span class="skill-icon icon-pink">▤</span>
-                <div>
-                  <span class="skill-kicker" data-en="DATA STORAGE" data-fr="STOCKAGE">DATA STORAGE</span>
-                  <h3 data-en="Databases" data-fr="Bases de données">Databases</h3>
-                </div>
-              </div>
+            <article class="skill-card skill-coral">
+              <div class="skill-topline"><span class="skill-icon">▦</span><span class="skill-kicker">DATA</span></div>
+              <h3 data-en="Databases" data-fr="Bases de données">Databases</h3>
               <div class="skill-tags"><span>PostgreSQL</span><span>MySQL</span></div>
             </article>
 
-            <article class="skill-card skill-wide skill-card-mixed">
-              <div class="skill-title-row">
-                <span class="skill-icon icon-purple">◎</span>
-                <div>
-                  <span class="skill-kicker" data-en="WEB" data-fr="WEB">WEB</span>
-                  <h3 data-en="Web Development" data-fr="Développement web">Web Development</h3>
-                </div>
-              </div>
+            <article class="skill-card skill-wide skill-mix">
+              <div class="skill-topline"><span class="skill-icon">◎</span><span class="skill-kicker">WEB</span></div>
+              <h3 data-en="Web Development" data-fr="Développement web">Web Development</h3>
               <div class="skill-tags"><span>HTML</span><span>CSS</span><span>Django</span></div>
             </article>
           </div>
@@ -431,7 +447,7 @@
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience" class="section section-white experience-section">
+    <section id="experience" class="section section-white">
       <div class="container section-layout">
         <aside class="section-index"><span>07</span><span data-en="Experience" data-fr="Expérience">Experience</span></aside>
 
@@ -442,32 +458,42 @@
             <span class="accent-text" data-en="experience." data-fr="sélectionnée.">experience.</span>
           </h2>
 
-          <div class="timeline">
-            <article class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-date">2026 — Present</div>
-              <div class="timeline-card timeline-current">
-                <div class="timeline-card-top">
-                  <h3 data-en="IT Officer" data-fr="Chargée des technologies de l'information">IT Officer</h3>
-                  <span data-en="Current" data-fr="Actuel">Current</span>
-                </div>
-                <p data-en="Providing day-to-day technical support and assisting with IT systems and digital operations in a school environment." data-fr="Assurer le soutien technique quotidien et contribuer aux systèmes informatiques et aux opérations numériques dans un environnement scolaire.">Providing day-to-day technical support and assisting with IT systems and digital operations in a school environment.</p>
+          <div class="experience-grid">
+            <article class="experience-card experience-research">
+              <div class="experience-date">2024 — 2025</div>
+              <div class="experience-icon">⌁</div>
+              <div class="experience-content">
+                <span class="experience-type" data-en="UNDERGRADUATE RESEARCH" data-fr="RECHERCHE DE PREMIER CYCLE">UNDERGRADUATE RESEARCH</span>
+                <h3 data-en="Anomaly Detection in Social Networks" data-fr="Détection d'anomalies dans les réseaux sociaux">Anomaly Detection in Social Networks</h3>
+                <p data-en="Reviewed and organized literature on anomaly detection in social networks, contributing to a conference paper." data-fr="Revue et organisation de la littérature sur la détection d'anomalies dans les réseaux sociaux, avec une contribution à un article de conférence.">Reviewed and organized literature on anomaly detection in social networks, contributing to a conference paper.</p>
               </div>
             </article>
 
-            <article class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-date" data-en="Undergraduate" data-fr="Premier cycle">Undergraduate</div>
-              <div class="timeline-card">
+            <article class="experience-card experience-it">
+              <div class="experience-date">2026 — Present</div>
+              <div class="experience-icon">⌘</div>
+              <div class="experience-content">
+                <span class="experience-type" data-en="TECHNICAL WORK" data-fr="TRAVAIL TECHNIQUE">TECHNICAL WORK</span>
+                <h3 data-en="IT Officer" data-fr="Chargée informatique">IT Officer</h3>
+                <p data-en="Providing day-to-day technical support and assisting with IT systems and digital operations in a school environment." data-fr="Assurer le support technique quotidien et contribuer aux systèmes informatiques et aux opérations numériques dans un établissement scolaire.">Providing day-to-day technical support and assisting with IT systems and digital operations in a school environment.</p>
+              </div>
+            </article>
+
+            <article class="experience-card experience-ta">
+              <div class="experience-date" data-en="Undergraduate" data-fr="Premier cycle">Undergraduate</div>
+              <div class="experience-icon">&lt;/&gt;</div>
+              <div class="experience-content">
+                <span class="experience-type" data-en="TEACHING" data-fr="ENSEIGNEMENT">TEACHING</span>
                 <h3 data-en="Programming Teaching Assistant" data-fr="Assistante d'enseignement en programmation">Programming Teaching Assistant</h3>
-                <p data-en="Assisted with an undergraduate C++ programming course." data-fr="Participation à l'encadrement d'un cours universitaire de programmation en C++.">Assisted with an undergraduate C++ programming course.</p>
+                <p data-en="Assisted with an undergraduate C++ programming course." data-fr="Contribution à un cours de programmation C++ de premier cycle en tant qu'assistante d'enseignement.">Assisted with an undergraduate C++ programming course.</p>
               </div>
             </article>
 
-            <article class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-date">Summer 2023</div>
-              <div class="timeline-card">
+            <article class="experience-card experience-internship">
+              <div class="experience-date">Summer 2023</div>
+              <div class="experience-icon">▦</div>
+              <div class="experience-content">
+                <span class="experience-type" data-en="INTERNSHIP" data-fr="STAGE">INTERNSHIP</span>
                 <h3 data-en="Faculty Office Internship" data-fr="Stage au sein d'un bureau universitaire">Faculty Office Internship</h3>
                 <p data-en="Worked with database-related tasks and Python data tools." data-fr="Travail sur des tâches liées aux bases de données et des outils de traitement de données en Python.">Worked with database-related tasks and Python data tools.</p>
               </div>
@@ -488,12 +514,12 @@
             <span data-en="Courses &" data-fr="Formations &">Courses &</span>
             <span class="accent-text" data-en="credentials." data-fr="certificats.">credentials.</span>
           </h2>
-          <p class="credentials-intro" data-en="A small selection of completed training relevant to my technical and academic development." data-fr="Une sélection de formations terminées en lien avec mon développement technique et académique.">A small selection of completed training relevant to my technical and academic development.</p>
+          <p class="credentials-intro" data-en="A focused selection of completed training relevant to my technical and academic development." data-fr="Une sélection ciblée de formations terminées en lien avec mon développement technique et académique.">A focused selection of completed training relevant to my technical and academic development.</p>
 
           <div class="credentials-grid">
-            <article class="credential-card featured-credential">
+            <article class="credential-card featured-credential credential-cs50">
               <div class="credential-image-wrap">
-                <img src="assets/cs50-preview.png" alt="CS50 Introduction to Programming with Python certificate">
+                <img src="assets/cs50-preview.png" alt="CS50 Introduction to Programming with Python certificate preview">
                 <span class="credential-year">2026</span>
               </div>
               <div class="credential-content">
@@ -507,9 +533,9 @@
               </div>
             </article>
 
-            <article class="credential-card featured-credential">
+            <article class="credential-card featured-credential credential-sbu">
               <div class="credential-image-wrap">
-                <img src="assets/sbu-preview.png" alt="Advanced Python and Back-End Web Development certificate">
+                <img src="assets/sbu-preview.png" alt="Advanced Python and Back-End Web Development certificate preview">
                 <span class="credential-year">2022</span>
               </div>
               <div class="credential-content">
@@ -529,7 +555,6 @@
                 <span class="credential-kicker" data-en="ADDITIONAL TRAINING · 2026" data-fr="FORMATION COMPLÉMENTAIRE · 2026">ADDITIONAL TRAINING · 2026</span>
                 <h3 data-en="Scientific Paper Writing with the Assistance of Artificial Intelligence" data-fr="Rédaction scientifique avec l'aide de l'intelligence artificielle">Scientific Paper Writing with the Assistance of Artificial Intelligence</h3>
                 <p data-en="8-hour course focused on scientific writing with the assistance of AI tools." data-fr="Formation de 8 heures consacrée à la rédaction scientifique avec l'aide d'outils d'intelligence artificielle.">8-hour course focused on scientific writing with the assistance of AI tools.</p>
-                <span class="privacy-note" data-en="Certificate image is not published here because it contains personal identification details." data-fr="L'image du certificat n'est pas publiée ici car elle contient des informations d'identification personnelles.">Certificate image is not published here because it contains personal identification details.</span>
               </div>
             </article>
           </div>
@@ -544,12 +569,12 @@
 
         <div class="section-content reveal">
           <div class="cv-card">
+            <div class="cv-decoration" aria-hidden="true">CV</div>
             <div>
               <p class="eyebrow" data-en="ACADEMIC CV" data-fr="CV ACADÉMIQUE">ACADEMIC CV</p>
               <h2>Curriculum Vitae</h2>
               <p data-en="A detailed overview of my education, projects, experience, skills, and academic activities." data-fr="Un aperçu détaillé de ma formation, de mes projets, de mon expérience, de mes compétences et de mes activités académiques.">A detailed overview of my education, projects, experience, skills, and academic activities.</p>
             </div>
-
             <div class="cv-actions">
               <a href="cv.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><span data-en="View CV" data-fr="Voir le CV">View CV</span></a>
               <a href="cv.pdf" download class="btn btn-green"><span data-en="Download CV" data-fr="Télécharger le CV">Download CV</span></a>
@@ -561,58 +586,37 @@
 
     <!-- CONTACT -->
     <section id="contact" class="contact-section">
-      <div class="contact-orb contact-orb-one"></div>
-      <div class="contact-orb contact-orb-two"></div>
+      <div class="contact-orb contact-orb-one" aria-hidden="true"></div>
+      <div class="contact-orb contact-orb-two" aria-hidden="true"></div>
+      <div class="contact-grid-pattern" aria-hidden="true"></div>
 
       <div class="container">
         <div class="contact-panel reveal">
-          <div class="contact-badge" data-en="OPEN TO CONVERSATION" data-fr="OUVERTE AUX ÉCHANGES">OPEN TO CONVERSATION</div>
-          <h2>
-            <span data-en="Let's" data-fr="Restons">Let's</span>
-            <span class="accent-text" data-en="connect." data-fr="en contact.">connect.</span>
-          </h2>
+          <div class="contact-copy">
+            <div class="contact-badge" data-en="GET IN TOUCH" data-fr="PRENDRE CONTACT">GET IN TOUCH</div>
+            <h2><span data-en="Let's" data-fr="Restons">Let's</span> <span class="accent-text" data-en="connect." data-fr="en contact.">connect.</span></h2>
+            <p class="contact-intro" data-en="Interested in discussing graduate opportunities, technical projects, or shared academic interests? Feel free to reach out — I'd be happy to connect." data-fr="Vous souhaitez échanger au sujet d'études supérieures, de projets techniques ou d'intérêts académiques communs ? N'hésitez pas à me contacter — je serai ravie d'échanger avec vous.">Interested in discussing graduate opportunities, technical projects, or shared academic interests? Feel free to reach out — I'd be happy to connect.</p>
+            <a class="contact-primary" href="mailto:shamim.gharaei2002@gmail.com"><span data-en="Send me an email" data-fr="M'envoyer un courriel">Send me an email</span><span>↗</span></a>
+          </div>
 
-          <p class="contact-intro"
-             data-en="Interested in discussing graduate opportunities, technical projects, or shared academic interests? Feel free to reach out — I'd be happy to connect."
-             data-fr="Vous souhaitez échanger au sujet d'études supérieures, de projets techniques ou d'intérêts académiques communs ? N'hésitez pas à me contacter — je serai ravie d'échanger avec vous.">
-            Interested in discussing graduate opportunities, technical projects, or shared academic interests? Feel free to reach out — I'd be happy to connect.
-          </p>
-
-          <div class="contact-grid">
+          <div class="contact-actions-grid">
             <a href="mailto:shamim.gharaei2002@gmail.com" class="contact-card contact-email">
               <div class="contact-icon">✉</div>
-              <div>
-                <span class="contact-type">EMAIL</span>
-                <strong>shamim.gharaei2002@gmail.com</strong>
-                <small data-en="Send a message" data-fr="Envoyer un message">Send a message</small>
-              </div>
+              <div><span class="contact-type">EMAIL</span><strong>shamim.gharaei2002@gmail.com</strong><small data-en="Direct contact" data-fr="Contact direct">Direct contact</small></div>
               <i>↗</i>
             </a>
 
             <a href="https://www.linkedin.com/in/shamimgharaei" target="_blank" rel="noopener noreferrer" class="contact-card contact-linkedin">
               <div class="contact-icon">in</div>
-              <div>
-                <span class="contact-type">LINKEDIN</span>
-                <strong>shamimgharaei</strong>
-                <small data-en="Professional profile" data-fr="Profil professionnel">Professional profile</small>
-              </div>
+              <div><span class="contact-type">LINKEDIN</span><strong>shamimgharaei</strong><small data-en="Professional profile" data-fr="Profil professionnel">Professional profile</small></div>
               <i>↗</i>
             </a>
 
             <a href="https://github.com/shamim-gharaei" target="_blank" rel="noopener noreferrer" class="contact-card contact-github">
               <div class="contact-icon">GH</div>
-              <div>
-                <span class="contact-type">GITHUB</span>
-                <strong>shamim-gharaei</strong>
-                <small data-en="Projects & code" data-fr="Projets & code">Projects & code</small>
-              </div>
+              <div><span class="contact-type">GITHUB</span><strong>shamim-gharaei</strong><small data-en="Projects & code" data-fr="Projets & code">Projects & code</small></div>
               <i>↗</i>
             </a>
-          </div>
-
-          <div class="contact-footer-note">
-            <span class="mini-dot"></span>
-            <span data-en="Thanks for visiting my portfolio." data-fr="Merci d'avoir visité mon portfolio.">Thanks for visiting my portfolio.</span>
           </div>
         </div>
       </div>
@@ -622,10 +626,8 @@
   <!-- PAPER MODAL -->
   <div id="paper-modal" class="modal" aria-hidden="true">
     <div class="modal-backdrop" data-modal-close></div>
-
-    <div class="modal-dialog paper-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="paper-modal-title">
+    <div class="modal-dialog paper-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="paper-modal-title" tabindex="-1">
       <button class="modal-close" type="button" data-modal-close aria-label="Close">×</button>
-
       <div class="paper-modal-topline">
         <span class="modal-kicker" data-en="FEATURED PUBLICATION · 2025" data-fr="PUBLICATION MISE EN AVANT · 2025">FEATURED PUBLICATION · 2025</span>
         <div class="modal-preview-chip">
@@ -637,22 +639,16 @@
       <div class="paper-modal-content">
         <h2 id="paper-modal-title">Anomaly Detection in Social Networks: A Taxonomy of Methods, Research Challenges, and Future Directions</h2>
         <p class="modal-authors">F. Dabaghi-Zarandi, <strong>S. Gharaei</strong>, A. Zeynali</p>
-
         <div class="modal-info-row">
           <div><span data-en="Type" data-fr="Type">Type</span><strong data-en="Conference Paper" data-fr="Article de conférence">Conference Paper</strong></div>
           <div><span data-en="Year" data-fr="Année">Year</span><strong>2025</strong></div>
         </div>
 
-        <h3 data-en="Abstract (as published)" data-fr="Résumé (publié en anglais)">Abstract (as published)</h3>
-        <p class="abstract-text">
-          In today’s world, social networks have become one of the most important communication platforms and are gradually turning into essential and inseparable parts of daily life. Every day, a huge amount of data is transferred through these networks; therefore, ensuring user security has become a necessity. For this reason, anomaly detection in social networks—such as identifying suspicious users and spammers—plays an important role in preventing the spread of fake information, fraud, and scams. These anomalies have different types. In this paper, we conducted a review and analysis of anomaly detection methods and proposed several categorizations for these approaches. Then, based on our proposed categorization, we evaluated and compared the methods, identified the existing challenges, and, as far as possible, suggested solutions to address them.
-        </p>
+        <h3 data-en="Abstract" data-fr="Résumé">Abstract</h3>
+        <p class="abstract-text">In today’s world, social networks have become one of the most important communication platforms and are gradually turning into essential and inseparable parts of daily life. Every day, a huge amount of data is transferred through these networks; therefore, ensuring user security has become a necessity. For this reason, anomaly detection in social networks—such as identifying suspicious users and spammers—plays an important role in preventing the spread of fake information, fraud, and scams. These anomalies have different types. In this paper, we conducted a review and analysis of anomaly detection methods and proposed several categorizations for these approaches. Then, based on our proposed categorization, we evaluated and compared the methods, identified the existing challenges, and, as far as possible, suggested solutions to address them.</p>
 
         <div class="keyword-row">
-          <span>Social Network</span>
-          <span>Anomaly Detection</span>
-          <span>Similarity Measure</span>
-          <span>Evaluation Function</span>
+          <span>Social Network</span><span>Anomaly Detection</span><span>Anomaly Detection Classification</span><span>Similarity Measure</span><span>Evaluation Function</span>
         </div>
 
         <div class="modal-actions">
@@ -672,6 +668,5 @@
       <a href="#home"><span data-en="Back to top" data-fr="Retour en haut">Back to top</span> ↑</a>
     </div>
   </footer>
-
 </body>
 </html>

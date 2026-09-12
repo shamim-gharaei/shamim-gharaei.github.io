@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const html = document.documentElement;
+  const body = document.body;
 
   /* THEME */
   const themeToggle = document.getElementById("theme-toggle");
@@ -14,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   updateThemeButton();
-
   themeToggle?.addEventListener("click", () => {
     const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
     html.setAttribute("data-theme", next);
@@ -22,80 +22,33 @@ document.addEventListener("DOMContentLoaded", () => {
     updateThemeButton();
   });
 
-  /* LANGUAGE + GITHUB PROJECTS */
+  /* MOBILE NAV */
+  const menuToggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("primary-nav");
+
+  function closeMenu() {
+    if (!menuToggle || !nav) return;
+    menuToggle.classList.remove("open");
+    nav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation");
+  }
+
+  menuToggle?.addEventListener("click", () => {
+    const open = nav?.classList.toggle("open");
+    menuToggle.classList.toggle("open", Boolean(open));
+    menuToggle.setAttribute("aria-expanded", String(Boolean(open)));
+    menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+  });
+
+  nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 940) closeMenu();
+  });
+
+  /* LANGUAGE */
   let currentLanguage = localStorage.getItem("portfolio-language") === "fr" ? "fr" : "en";
   const languageButtons = document.querySelectorAll(".language-button");
-
-  const projectsContainer = document.getElementById("github-projects");
-  const githubUsername = "shamim-gharaei";
-
-  const projectConfig = [
-    {
-      repo: "network-intrusion-anomaly-detection",
-      title: "Network Intrusion Anomaly Detection",
-      descriptionEn: "A machine-learning project exploring PortScan detection using network-traffic data from CICIDS2017.",
-      descriptionFr: "Un projet d'apprentissage automatique explorant la détection de PortScan à partir de données de trafic réseau CICIDS2017.",
-      tags: ["Python", "Pandas", "scikit-learn", "CICIDS2017"]
-    },
-    {
-      repo: "social-network-anomaly-analysis",
-      title: "Social Network Anomaly Analysis",
-      descriptionEn: "A graph-based project exploring structural characteristics and anomaly identification in social-network data using Python and NetworkX.",
-      descriptionFr: "Un projet fondé sur les graphes explorant les caractéristiques structurelles et l'identification d'anomalies dans des données de réseaux sociaux avec Python et NetworkX.",
-      tags: ["Python", "NetworkX", "Graph Analysis"]
-    }
-  ];
-
-  function prettyLanguage(language) {
-    if (!language) return "GitHub";
-    return language;
-  }
-
-  function renderProjects(repositories) {
-    if (!projectsContainer) return;
-
-    projectsContainer.innerHTML = "";
-
-    projectConfig.forEach((config, index) => {
-      const repo = repositories.find((item) => item.name === config.repo) || {};
-      const card = document.createElement("a");
-      card.className = `project-card project-card-${index + 1}`;
-      card.href = repo.html_url || `https://github.com/${githubUsername}/${config.repo}`;
-      card.target = "_blank";
-      card.rel = "noopener noreferrer";
-
-      const updated = repo.updated_at
-        ? new Date(repo.updated_at).toLocaleDateString(
-            currentLanguage === "fr" ? "fr-FR" : "en-US",
-            { month: "short", year: "numeric" }
-          )
-        : "GitHub";
-
-      const updatedLabel = currentLanguage === "fr" ? "Mis à jour" : "Updated";
-      const description = currentLanguage === "fr" ? config.descriptionFr : config.descriptionEn;
-
-      card.innerHTML = `
-        <div class="project-header">
-          <div class="project-title-wrap">
-            <div class="github-project-icon">GH</div>
-            <h3>${config.title}</h3>
-          </div>
-          <span class="project-arrow">↗</span>
-        </div>
-        <p class="project-description">${description}</p>
-        <div class="project-tech">
-          ${config.tags.map((tag) => `<span>${tag}</span>`).join("")}
-        </div>
-        <div class="project-meta">
-          <span>${prettyLanguage(repo.language)}</span>
-          <span>★ ${repo.stargazers_count ?? 0}</span>
-          <span>${updatedLabel} ${updated}</span>
-        </div>
-      `;
-
-      projectsContainer.appendChild(card);
-    });
-  }
 
   function applyLanguage(lang) {
     currentLanguage = lang;
@@ -108,40 +61,56 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     languageButtons.forEach((button) => {
-      button.classList.toggle("active", button.dataset.lang === lang);
+      const active = button.dataset.lang === lang;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
     });
 
-    if (window.__portfolioRepos) {
-      renderProjects(window.__portfolioRepos);
-    }
+    updateProjectMetadataLabels();
   }
 
   languageButtons.forEach((button) => {
     button.addEventListener("click", () => applyLanguage(button.dataset.lang));
   });
-
   applyLanguage(currentLanguage);
 
-  async function loadGitHubProjects() {
-    if (!projectsContainer) return;
+  /* STATIC PROJECT CARDS + OPTIONAL GITHUB ENRICHMENT */
+  const githubUsername = "shamim-gharaei";
+  let repositoryCache = [];
 
-    // Render immediately so the section never stays stuck on "Loading...".
-    renderProjects([]);
+  function updateProjectMetadataLabels() {
+    document.querySelectorAll(".project-card[data-repo]").forEach((card) => {
+      const repoName = card.dataset.repo;
+      const repo = repositoryCache.find((item) => item.name === repoName);
+      if (!repo) return;
 
-    try {
-      const response = await fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=100`);
-      if (!response.ok) throw new Error("GitHub API request failed");
-      const repositories = await response.json();
-      window.__portfolioRepos = repositories;
-      renderProjects(repositories);
-    } catch (error) {
-      console.error("GitHub projects:", error);
-      window.__portfolioRepos = [];
-      renderProjects([]);
-    }
+      const language = card.querySelector(".repo-language");
+      const stars = card.querySelector(".repo-stars");
+      const updated = card.querySelector(".repo-updated");
+
+      if (language) language.textContent = repo.language || "GitHub";
+      if (stars) stars.textContent = `★ ${repo.stargazers_count ?? 0}`;
+      if (updated && repo.updated_at) {
+        const date = new Date(repo.updated_at).toLocaleDateString(currentLanguage === "fr" ? "fr-FR" : "en-US", {
+          month: "short",
+          year: "numeric"
+        });
+        updated.textContent = `${currentLanguage === "fr" ? "Mis à jour" : "Updated"} ${date}`;
+      }
+    });
   }
 
-  loadGitHubProjects();
+  async function enrichGitHubProjects() {
+    try {
+      const response = await fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=100`);
+      if (!response.ok) return;
+      repositoryCache = await response.json();
+      updateProjectMetadataLabels();
+    } catch (error) {
+      console.info("GitHub metadata unavailable; static project cards remain visible.");
+    }
+  }
+  enrichGitHubProjects();
 
   /* REVEAL */
   const revealItems = document.querySelectorAll(".reveal");
@@ -154,24 +123,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }, { threshold: 0.1 });
-
     revealItems.forEach((item) => revealObserver.observe(item));
   }
 
   /* ACTIVE NAV */
   const sections = document.querySelectorAll("main section[id]");
   const navLinks = document.querySelectorAll(".nav-links a");
-
   if ("IntersectionObserver" in window) {
     const navigationObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         navLinks.forEach((link) => link.classList.remove("active"));
-        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-        active?.classList.add("active");
+        document.querySelector(`.nav-links a[href="#${entry.target.id}"]`)?.classList.add("active");
       });
     }, { rootMargin: "-38% 0px -52% 0px" });
-
     sections.forEach((section) => navigationObserver.observe(section));
   }
 
@@ -188,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* HERO PARALLAX */
   const heroVisual = document.getElementById("hero-visual");
-  if (heroVisual) {
+  if (heroVisual && window.matchMedia("(pointer: fine)").matches) {
     window.addEventListener("mousemove", (event) => {
       if (window.innerWidth < 1000) return;
       const x = (event.clientX / window.innerWidth - 0.5) * 8;
@@ -200,7 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
   /* GRAPH TOOLTIP */
   const graphTooltip = document.getElementById("graph-tooltip");
   const networkWrapper = document.querySelector(".network-wrapper");
-
   if (graphTooltip && networkWrapper) {
     document.querySelectorAll(".graph-node").forEach((node) => {
       node.addEventListener("mouseenter", (event) => {
@@ -218,27 +182,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* PAPER MODAL */
   const paperModal = document.getElementById("paper-modal");
+  const modalDialog = paperModal?.querySelector(".modal-dialog");
   const openPaperButtons = document.querySelectorAll("[data-open-paper]");
   const closeModalButtons = document.querySelectorAll("[data-modal-close]");
+  let previousFocus = null;
 
   function openPaperModal() {
-    if (!paperModal) return;
+    if (!paperModal || !modalDialog) return;
+    previousFocus = document.activeElement;
     paperModal.classList.add("open");
     paperModal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("modal-open");
+    body.classList.add("modal-open");
+    setTimeout(() => modalDialog.focus(), 0);
   }
 
   function closePaperModal() {
     if (!paperModal) return;
     paperModal.classList.remove("open");
     paperModal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("modal-open");
+    body.classList.remove("modal-open");
+    previousFocus?.focus?.();
   }
 
   openPaperButtons.forEach((button) => button.addEventListener("click", openPaperModal));
   closeModalButtons.forEach((button) => button.addEventListener("click", closePaperModal));
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closePaperModal();
+    if (event.key === "Escape" && paperModal?.classList.contains("open")) closePaperModal();
   });
 
   /* COPY CITATION */
@@ -259,15 +228,14 @@ document.addEventListener("DOMContentLoaded", () => {
         temporary.remove();
       }
 
-      const original = button.textContent;
+      const originalText = button.textContent;
       button.textContent = currentLanguage === "fr" ? "Copié ✓" : "Copied ✓";
-      if (citationMessage) citationMessage.textContent = currentLanguage === "fr" ? "Référence copiée." : "Citation copied to clipboard.";
+      if (citationMessage) citationMessage.textContent = currentLanguage === "fr" ? "Référence copiée." : "Citation copied.";
       setTimeout(() => {
-        button.textContent = original;
+        button.textContent = originalText;
         if (citationMessage) citationMessage.textContent = "";
       }, 1800);
     } catch (error) {
-      console.error("Clipboard:", error);
       if (citationMessage) citationMessage.textContent = currentLanguage === "fr" ? "Impossible de copier automatiquement." : "Unable to copy automatically.";
     }
   }
