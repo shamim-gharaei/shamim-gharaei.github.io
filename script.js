@@ -22,34 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
     updateThemeButton();
   });
 
-  /* LANGUAGE */
+  /* LANGUAGE + GITHUB PROJECTS */
   let currentLanguage = localStorage.getItem("portfolio-language") === "fr" ? "fr" : "en";
   const languageButtons = document.querySelectorAll(".language-button");
 
-  function applyLanguage(lang) {
-    currentLanguage = lang;
-    localStorage.setItem("portfolio-language", lang);
-    html.lang = lang;
-
-    document.querySelectorAll("[data-en][data-fr]").forEach((element) => {
-      const value = element.dataset[lang];
-      if (typeof value === "string") element.textContent = value;
-    });
-
-    languageButtons.forEach((button) => {
-      button.classList.toggle("active", button.dataset.lang === lang);
-    });
-
-    renderProjects(window.__portfolioRepos || []);
-  }
-
-  languageButtons.forEach((button) => {
-    button.addEventListener("click", () => applyLanguage(button.dataset.lang));
-  });
-
-  applyLanguage(currentLanguage);
-
-  /* GITHUB PROJECTS */
   const projectsContainer = document.getElementById("github-projects");
   const githubUsername = "shamim-gharaei";
 
@@ -89,7 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
       card.rel = "noopener noreferrer";
 
       const updated = repo.updated_at
-        ? new Date(repo.updated_at).toLocaleDateString(currentLanguage === "fr" ? "fr-FR" : "en-US", { month: "short", year: "numeric" })
+        ? new Date(repo.updated_at).toLocaleDateString(
+            currentLanguage === "fr" ? "fr-FR" : "en-US",
+            { month: "short", year: "numeric" }
+          )
         : "GitHub";
 
       const updatedLabel = currentLanguage === "fr" ? "Mis à jour" : "Updated";
@@ -118,8 +97,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function applyLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem("portfolio-language", lang);
+    html.lang = lang;
+
+    document.querySelectorAll("[data-en][data-fr]").forEach((element) => {
+      const value = element.dataset[lang];
+      if (typeof value === "string") element.textContent = value;
+    });
+
+    languageButtons.forEach((button) => {
+      button.classList.toggle("active", button.dataset.lang === lang);
+    });
+
+    if (window.__portfolioRepos) {
+      renderProjects(window.__portfolioRepos);
+    }
+  }
+
+  languageButtons.forEach((button) => {
+    button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+  });
+
+  applyLanguage(currentLanguage);
+
   async function loadGitHubProjects() {
     if (!projectsContainer) return;
+
+    // Render immediately so the section never stays stuck on "Loading...".
+    renderProjects([]);
 
     try {
       const response = await fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=100`);
