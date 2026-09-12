@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
 
-  /* ======================================
+  /* =========================================
      THEME
-  ====================================== */
+  ========================================= */
 
   const html =
     document.documentElement;
@@ -13,18 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
       "theme-toggle"
     );
 
-
   const savedTheme =
     localStorage.getItem(
       "theme"
     );
 
-
-  /*
-    Light mode is the default.
-    If the user has previously selected
-    a theme, remember that choice.
-  */
 
   if (
     savedTheme === "dark" ||
@@ -51,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!themeToggle) {
       return;
     }
-
 
     const theme =
       html.getAttribute(
@@ -93,29 +85,25 @@ document.addEventListener("DOMContentLoaded", () => {
       "click",
       () => {
 
-        const currentTheme =
+        const current =
           html.getAttribute(
             "data-theme"
           );
 
-
-        const nextTheme =
-          currentTheme === "dark"
+        const next =
+          current === "dark"
             ? "light"
             : "dark";
 
-
         html.setAttribute(
           "data-theme",
-          nextTheme
+          next
         );
-
 
         localStorage.setItem(
           "theme",
-          nextTheme
+          next
         );
-
 
         updateThemeButton();
 
@@ -126,20 +114,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  /* ======================================
+  /* =========================================
      GITHUB PROJECTS
-  ====================================== */
+  ========================================= */
 
   const githubUsername =
     "shamim-gharaei";
 
 
   const selectedRepositories = [
-
     "network-intrusion-anomaly-detection",
-
     "social-network-anomaly-analysis"
-
   ];
 
 
@@ -381,14 +366,13 @@ document.addEventListener("DOMContentLoaded", () => {
           updated.textContent =
             "Updated "
             +
-            updateDate
-              .toLocaleDateString(
-                "en-US",
-                {
-                  month: "short",
-                  year: "numeric"
-                }
-              );
+            updateDate.toLocaleDateString(
+              "en-US",
+              {
+                month: "short",
+                year: "numeric"
+              }
+            );
 
 
           meta.appendChild(
@@ -411,10 +395,9 @@ document.addEventListener("DOMContentLoaded", () => {
           );
 
 
-          projectsContainer
-            .appendChild(
-              card
-            );
+          projectsContainer.appendChild(
+            card
+          );
 
         }
       );
@@ -438,7 +421,7 @@ document.addEventListener("DOMContentLoaded", () => {
     catch (error) {
 
       console.error(
-        "GitHub projects:",
+        "GitHub Projects:",
         error
       );
 
@@ -459,13 +442,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  /* ======================================
+  /* =========================================
      SECTION REVEAL
-  ====================================== */
+  ========================================= */
 
-  const animatedSections =
+  const revealItems =
     document.querySelectorAll(
-      ".animate-section"
+      ".reveal"
     );
 
 
@@ -506,17 +489,17 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         {
-          threshold: 0.10
+          threshold: 0.12
         }
 
       );
 
 
-    animatedSections.forEach(
-      section => {
+    revealItems.forEach(
+      item => {
 
         revealObserver.observe(
-          section
+          item
         );
 
       }
@@ -526,17 +509,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  /* ======================================
+  /* =========================================
      ACTIVE NAVIGATION
-  ====================================== */
+  ========================================= */
 
-  const pageSections =
+  const sections =
     document.querySelectorAll(
       "main section[id]"
     );
 
 
-  const navigationLinks =
+  const navLinks =
     document.querySelectorAll(
       ".nav-links a"
     );
@@ -562,7 +545,7 @@ document.addEventListener("DOMContentLoaded", () => {
               }
 
 
-              navigationLinks.forEach(
+              navLinks.forEach(
                 link => {
 
                   link.classList
@@ -603,7 +586,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
 
-    pageSections.forEach(
+    sections.forEach(
       section => {
 
         navigationObserver.observe(
@@ -617,9 +600,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  /* ======================================
+  /* =========================================
      SCROLL PROGRESS
-  ====================================== */
+  ========================================= */
 
   const progressBar =
     document.getElementById(
@@ -634,7 +617,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    const maximumScroll =
+    const maxScroll =
       document.documentElement
         .scrollHeight
       -
@@ -642,12 +625,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const percentage =
-      maximumScroll > 0
+      maxScroll > 0
         ?
         (
           window.scrollY
           /
-          maximumScroll
+          maxScroll
         )
         * 100
         :
@@ -673,9 +656,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  /* ======================================
+  /* =========================================
      HERO PARALLAX
-  ====================================== */
+  ========================================= */
 
   const heroVisual =
     document.getElementById(
@@ -690,8 +673,7 @@ document.addEventListener("DOMContentLoaded", () => {
       event => {
 
         if (
-          window.innerWidth
-          < 1000
+          window.innerWidth < 1000
         ) {
           return;
         }
@@ -733,9 +715,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  /* ======================================
+  /* =========================================
      GRAPH TOOLTIP
-  ====================================== */
+  ========================================= */
 
   const graphNodes =
     document.querySelectorAll(
@@ -756,8 +738,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   if (
-    graphTooltip
-    &&
+    graphTooltip &&
     networkWrapper
   ) {
 
@@ -771,15 +752,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             graphTooltip.textContent =
-              event
-                .target
-                .dataset
-                .label;
+              event.target.dataset.label;
 
 
             const nodeRect =
-              event
-                .target
+              event.target
                 .getBoundingClientRect();
 
 
@@ -829,7 +806,6 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         );
 
-
       }
     );
 
@@ -837,9 +813,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  /* ======================================
+  /* =========================================
      COPY CITATION
-  ====================================== */
+  ========================================= */
 
   const citationButton =
     document.getElementById(
@@ -880,10 +856,9 @@ document.addEventListener("DOMContentLoaded", () => {
           } else {
 
             const temporary =
-              document
-                .createElement(
-                  "textarea"
-                );
+              document.createElement(
+                "textarea"
+              );
 
 
             temporary.value =
@@ -926,6 +901,7 @@ document.addEventListener("DOMContentLoaded", () => {
           setTimeout(
             () => {
 
+
               citationButton.textContent =
                 "Copy citation";
 
@@ -946,6 +922,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         catch (error) {
+
 
           console.error(
             "Clipboard:",
@@ -971,9 +948,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  /* ======================================
+  /* =========================================
      CURSOR GLOW
-  ====================================== */
+  ========================================= */
 
   const cursorGlow =
     document.getElementById(
@@ -1027,9 +1004,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  /* ======================================
+  /* =========================================
      BACK TO TOP
-  ====================================== */
+  ========================================= */
 
   const backToTop =
     document.getElementById(
