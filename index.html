@@ -32,7 +32,6 @@
   >
 
   <link rel="stylesheet" href="style.css">
-
   <script src="script.js" defer></script>
 </head>
 
@@ -98,17 +97,17 @@
 
     <section id="home" class="hero">
 
-      <div class="hero-pattern"></div>
+      <div class="hero-grid-pattern"></div>
 
-      <div class="hero-orb orb-pink"></div>
-      <div class="hero-orb orb-purple"></div>
-      <div class="hero-orb orb-green"></div>
-
-
-      <div class="container hero-grid">
+      <div class="hero-orb orb-one"></div>
+      <div class="hero-orb orb-two"></div>
+      <div class="hero-orb orb-three"></div>
 
 
-        <div class="hero-copy">
+      <div class="container hero-layout">
+
+
+        <div class="hero-copy hero-enter">
 
           <div class="hero-badge">
 
@@ -133,9 +132,9 @@
           <p class="hero-description">
 
             I'm interested in anomaly detection, machine learning,
-            and network and social-network analysis. My experience
-            in these areas comes mainly from undergraduate projects
-            and research.
+            and network and social-network analysis.
+            I've explored these topics mainly through undergraduate
+            projects and research.
 
           </p>
 
@@ -146,12 +145,10 @@
               href="https://github.com/shamim-gharaei"
               target="_blank"
               rel="noopener noreferrer"
-              class="primary-btn"
+              class="btn btn-primary"
             >
-
               Explore GitHub
               <span>↗</span>
-
             </a>
 
 
@@ -159,7 +156,7 @@
               href="https://www.linkedin.com/in/shamimgharaei"
               target="_blank"
               rel="noopener noreferrer"
-              class="secondary-btn"
+              class="btn btn-green"
             >
               LinkedIn
             </a>
@@ -169,7 +166,7 @@
               href="cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              class="ghost-btn"
+              class="btn btn-outline"
             >
               View CV
             </a>
@@ -179,23 +176,48 @@
 
           <div class="hero-stats">
 
-            <div class="stat-item">
-              <strong>1</strong>
-              <span>Publication</span>
+            <div class="stat">
+
+              <strong>
+                01
+              </strong>
+
+              <span>
+                Publication
+              </span>
+
             </div>
 
-            <div class="stat-line"></div>
 
-            <div class="stat-item">
-              <strong>2</strong>
-              <span>Selected Projects</span>
+            <div class="stat-divider"></div>
+
+
+            <div class="stat">
+
+              <strong>
+                02
+              </strong>
+
+              <span>
+                Selected Projects
+              </span>
+
             </div>
 
-            <div class="stat-line"></div>
 
-            <div class="stat-item">
-              <strong>4</strong>
-              <span>Research Interests</span>
+            <div class="stat-divider"></div>
+
+
+            <div class="stat">
+
+              <strong>
+                04
+              </strong>
+
+              <span>
+                Research Interests
+              </span>
+
             </div>
 
           </div>
@@ -204,21 +226,21 @@
 
 
 
-        <!-- RESEARCH MAP -->
+        <!-- HERO VISUAL -->
 
         <div
-          class="hero-visual"
+          class="hero-visual hero-enter"
           id="hero-visual"
         >
 
           <div class="research-map-card">
 
 
-            <div class="map-card-header">
+            <div class="map-header">
 
               <div>
 
-                <span class="tiny-label">
+                <span class="micro-label">
                   INTERACTIVE RESEARCH MAP
                 </span>
 
@@ -229,7 +251,7 @@
               </div>
 
 
-              <div class="portfolio-status">
+              <div class="status">
 
                 <span></span>
 
@@ -341,16 +363,19 @@
             </div>
 
 
-            <p class="map-hint">
-              Hover over the nodes to explore
-            </p>
+            <div class="map-bottom">
 
+              <span>
+                Anomaly Detection
+              </span>
 
-            <div class="map-tags">
+              <span>
+                Machine Learning
+              </span>
 
-              <span>Anomaly Detection</span>
-              <span>Machine Learning</span>
-              <span>Networks</span>
+              <span>
+                Networks
+              </span>
 
             </div>
 
@@ -375,31 +400,30 @@
 
 
         <aside class="section-index">
-
           <span>01</span>
-
-          About Me
-
+          About
         </aside>
 
 
-        <div class="section-main animate-section">
+        <div class="section-content reveal">
 
           <p class="eyebrow">
-            ABOUT
+            ABOUT ME
           </p>
 
 
-          <h2>
+          <h2 class="section-title">
+
             A little
             <span>about me.</span>
+
           </h2>
 
 
-          <div class="about-grid">
+          <div class="about-layout">
 
 
-            <div class="about-text">
+            <div class="about-copy">
 
               <p>
 
@@ -421,28 +445,34 @@
             </div>
 
 
-            <div class="about-side">
+            <div class="about-facts">
 
-              <div class="small-fact">
 
-                <span>Focus</span>
+              <div class="fact-card">
+
+                <span>
+                  CURRENT FOCUS
+                </span>
 
                 <strong>
-                  Technical learning through projects
+                  Technical growth through practical work
                 </strong>
 
               </div>
 
 
-              <div class="small-fact">
+              <div class="fact-card">
 
-                <span>Current Direction</span>
+                <span>
+                  NEXT STEP
+                </span>
 
                 <strong>
                   Graduate study opportunities
                 </strong>
 
               </div>
+
 
             </div>
 
@@ -460,47 +490,54 @@
 
     <section
       id="education"
-      class="section section-soft"
+      class="section section-tint"
     >
 
       <div class="container section-layout">
 
 
         <aside class="section-index">
-
           <span>02</span>
-
           Education
-
         </aside>
 
 
-        <div class="section-main animate-section">
+        <div class="section-content reveal">
 
           <p class="eyebrow">
             ACADEMIC BACKGROUND
           </p>
 
 
-          <h2>
+          <h2 class="section-title">
+
             Education &
             <span>background.</span>
+
           </h2>
 
 
           <article class="education-card">
 
 
-            <div class="education-date">
-              2020 — 2026
+            <div class="education-icon">
+              🎓
             </div>
 
 
-            <div class="education-content">
+            <div class="education-main">
 
-              <span class="education-type">
-                Bachelor's Degree
-              </span>
+              <div class="education-top">
+
+                <span class="education-type">
+                  Bachelor's Degree
+                </span>
+
+                <span class="education-date">
+                  Sep 2020 — May 2026
+                </span>
+
+              </div>
 
 
               <h3>
@@ -515,17 +552,12 @@
 
               <p class="education-description">
 
-                Undergraduate work included anomaly detection
-                in social networks and practical projects involving
+                Undergraduate work included anomaly detection in
+                social networks and practical projects involving
                 network and graph data.
 
               </p>
 
-            </div>
-
-
-            <div class="education-decoration">
-              🎓
             </div>
 
           </article>
@@ -549,33 +581,38 @@
 
 
         <aside class="section-index">
-
           <span>03</span>
-
-          Research Interests
-
+          Research
         </aside>
 
 
-        <div class="section-main animate-section">
+        <div class="section-content reveal">
 
           <p class="eyebrow">
             INTERESTS
           </p>
 
 
-          <h2>
+          <h2 class="section-title">
+
             Areas I'm
             <span>interested in.</span>
+
           </h2>
 
 
           <div class="interest-grid">
 
 
-            <div class="interest-item interest-pink">
+            <div class="interest-card accent-pink">
 
-              <span class="interest-dot"></span>
+              <span class="interest-number">
+                01
+              </span>
+
+              <div class="interest-symbol">
+                ◉
+              </div>
 
               <strong>
                 Anomaly Detection
@@ -584,9 +621,15 @@
             </div>
 
 
-            <div class="interest-item interest-purple">
+            <div class="interest-card accent-purple">
 
-              <span class="interest-dot"></span>
+              <span class="interest-number">
+                02
+              </span>
+
+              <div class="interest-symbol">
+                ◇
+              </div>
 
               <strong>
                 Machine Learning
@@ -595,9 +638,15 @@
             </div>
 
 
-            <div class="interest-item interest-green">
+            <div class="interest-card accent-green">
 
-              <span class="interest-dot"></span>
+              <span class="interest-number">
+                03
+              </span>
+
+              <div class="interest-symbol">
+                ⬡
+              </div>
 
               <strong>
                 Network Intrusion Detection
@@ -606,16 +655,21 @@
             </div>
 
 
-            <div class="interest-item interest-pink">
+            <div class="interest-card accent-pink">
 
-              <span class="interest-dot"></span>
+              <span class="interest-number">
+                04
+              </span>
+
+              <div class="interest-symbol">
+                ⌘
+              </div>
 
               <strong>
                 Social Network Analysis
               </strong>
 
             </div>
-
 
           </div>
 
@@ -627,41 +681,40 @@
 
 
 
-    <!-- PUBLICATIONS -->
+    <!-- PUBLICATION -->
 
     <section
       id="publications"
-      class="section section-soft"
+      class="section section-tint"
     >
 
       <div class="container section-layout">
 
 
         <aside class="section-index">
-
           <span>04</span>
-
           Publications
-
         </aside>
 
 
-        <div class="section-main animate-section">
+        <div class="section-content reveal">
 
           <p class="eyebrow">
-            PUBLICATION
+            RESEARCH OUTPUT
           </p>
 
 
-          <h2>
+          <h2 class="section-title">
+
             Selected
             <span>publication.</span>
+
           </h2>
 
 
           <article class="publication-card">
 
-            <div class="publication-line"></div>
+            <div class="publication-accent"></div>
 
 
             <div class="publication-top">
@@ -669,11 +722,11 @@
 
               <div class="publication-tags">
 
-                <span class="year-tag">
+                <span class="tag-year">
                   2025
                 </span>
 
-                <span class="paper-tag">
+                <span class="tag-paper">
                   Conference Paper
                 </span>
 
@@ -682,7 +735,7 @@
 
               <button
                 id="copy-citation"
-                class="citation-btn"
+                class="citation-button"
                 type="button"
               >
                 Copy citation
@@ -700,12 +753,12 @@
             </h3>
 
 
-            <div class="publication-info">
+            <div class="publication-meta">
 
 
               <div>
 
-                <span class="meta-title">
+                <span class="meta-label">
                   AUTHORS
                 </span>
 
@@ -722,7 +775,7 @@
 
               <div>
 
-                <span class="meta-title">
+                <span class="meta-label">
                   VENUE
                 </span>
 
@@ -736,14 +789,12 @@
 
               </div>
 
-
             </div>
 
 
             <p
               id="citation-message"
               class="citation-message"
-              aria-live="polite"
             ></p>
 
           </article>
@@ -760,22 +811,19 @@
 
     <section
       id="projects"
-      class="section section-white"
+      class="section section-white projects-section"
     >
 
       <div class="container section-layout">
 
 
         <aside class="section-index">
-
           <span>05</span>
-
           Projects
-
         </aside>
 
 
-        <div class="section-main animate-section">
+        <div class="section-content reveal">
 
 
           <div class="projects-heading">
@@ -784,18 +832,22 @@
             <div>
 
               <p class="eyebrow">
-                GITHUB
+                SELECTED WORK
               </p>
 
-              <h2>
+
+              <h2 class="section-title">
+
                 Selected
                 <span>projects.</span>
+
               </h2>
 
-              <p class="section-description">
 
-                A selection of recent technical projects
-                available on my GitHub profile.
+              <p class="section-subtitle">
+
+                Recent technical projects available on
+                my GitHub profile.
 
               </p>
 
@@ -806,11 +858,10 @@
               href="https://github.com/shamim-gharaei?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
-              class="all-repositories"
+              class="repositories-link"
             >
-              All repositories ↗
+              View all repositories ↗
             </a>
-
 
           </div>
 
@@ -838,31 +889,30 @@
 
     <section
       id="skills"
-      class="section section-soft"
+      class="section section-tint"
     >
 
       <div class="container section-layout">
 
 
         <aside class="section-index">
-
           <span>06</span>
-
-          Skills & Tools
-
+          Skills
         </aside>
 
 
-        <div class="section-main animate-section">
+        <div class="section-content reveal">
 
           <p class="eyebrow">
             TOOLKIT
           </p>
 
 
-          <h2>
+          <h2 class="section-title">
+
             Technical
             <span>skills.</span>
+
           </h2>
 
 
@@ -871,17 +921,18 @@
 
             <article class="skill-card">
 
-              <div class="skill-header">
+              <div class="skill-title-row">
 
-                <div class="skill-icon icon-pink">
+                <span class="skill-icon icon-pink">
                   &lt;/&gt;
-                </div>
+                </span>
 
                 <h3>
                   Programming Languages
                 </h3>
 
               </div>
+
 
               <div class="skill-tags">
 
@@ -895,20 +946,20 @@
             </article>
 
 
-
             <article class="skill-card">
 
-              <div class="skill-header">
+              <div class="skill-title-row">
 
-                <div class="skill-icon icon-purple">
+                <span class="skill-icon icon-purple">
                   ◇
-                </div>
+                </span>
 
                 <h3>
                   Libraries & Data Tools
                 </h3>
 
               </div>
+
 
               <div class="skill-tags">
 
@@ -924,20 +975,20 @@
             </article>
 
 
-
             <article class="skill-card">
 
-              <div class="skill-header">
+              <div class="skill-title-row">
 
-                <div class="skill-icon icon-green">
+                <span class="skill-icon icon-green">
                   ⚙
-                </div>
+                </span>
 
                 <h3>
                   Tools
                 </h3>
 
               </div>
+
 
               <div class="skill-tags">
 
@@ -951,20 +1002,20 @@
             </article>
 
 
-
             <article class="skill-card">
 
-              <div class="skill-header">
+              <div class="skill-title-row">
 
-                <div class="skill-icon icon-pink">
+                <span class="skill-icon icon-pink">
                   ▤
-                </div>
+                </span>
 
                 <h3>
                   Databases
                 </h3>
 
               </div>
+
 
               <div class="skill-tags">
 
@@ -976,20 +1027,20 @@
             </article>
 
 
-
             <article class="skill-card skill-wide">
 
-              <div class="skill-header">
+              <div class="skill-title-row">
 
-                <div class="skill-icon icon-purple">
+                <span class="skill-icon icon-purple">
                   ◎
-                </div>
+                </span>
 
                 <h3>
                   Web Development
                 </h3>
 
               </div>
+
 
               <div class="skill-tags">
 
@@ -1000,7 +1051,6 @@
               </div>
 
             </article>
-
 
           </div>
 
@@ -1023,24 +1073,23 @@
 
 
         <aside class="section-index">
-
           <span>07</span>
-
           Experience
-
         </aside>
 
 
-        <div class="section-main animate-section">
+        <div class="section-content reveal">
 
           <p class="eyebrow">
             EXPERIENCE
           </p>
 
 
-          <h2>
+          <h2 class="section-title">
+
             Selected
             <span>experience.</span>
+
           </h2>
 
 
@@ -1055,12 +1104,20 @@
                 2026 — Present
               </div>
 
+              <div class="timeline-card">
 
-              <div class="timeline-content">
+                <div class="timeline-card-top">
 
-                <h3>
-                  IT Specialist
-                </h3>
+                  <h3>
+                    IT Specialist
+                  </h3>
+
+                  <span>
+                    Current
+                  </span>
+
+                </div>
+
 
                 <p>
 
@@ -1080,11 +1137,10 @@
               <div class="timeline-marker"></div>
 
               <div class="timeline-date">
-                Teaching
+                Undergraduate
               </div>
 
-
-              <div class="timeline-content">
+              <div class="timeline-card">
 
                 <h3>
                   Programming Teaching Assistant
@@ -1108,11 +1164,10 @@
               <div class="timeline-marker"></div>
 
               <div class="timeline-date">
-                2023
+                Summer 2023
               </div>
 
-
-              <div class="timeline-content">
+              <div class="timeline-card">
 
                 <h3>
                   Faculty Office Internship
@@ -1129,7 +1184,6 @@
 
             </article>
 
-
           </div>
 
         </div>
@@ -1144,22 +1198,19 @@
 
     <section
       id="cv"
-      class="section section-soft"
+      class="section section-tint"
     >
 
       <div class="container section-layout">
 
 
         <aside class="section-index">
-
           <span>08</span>
-
           CV
-
         </aside>
 
 
-        <div class="section-main animate-section">
+        <div class="section-content reveal">
 
           <div class="cv-card">
 
@@ -1187,16 +1238,15 @@
                 href="cv.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="primary-btn"
+                class="btn btn-primary"
               >
                 View CV
               </a>
 
-
               <a
                 href="cv.pdf"
                 download
-                class="secondary-btn"
+                class="btn btn-green"
               >
                 Download CV
               </a>
@@ -1222,9 +1272,10 @@
 
       <div class="container">
 
-        <div class="contact-card-main animate-section">
 
-          <div class="contact-decoration"></div>
+        <div class="contact-panel reveal">
+
+          <div class="contact-glow"></div>
 
 
           <p class="eyebrow">
@@ -1233,12 +1284,14 @@
 
 
           <h2>
+
             Let's
             <span>connect.</span>
+
           </h2>
 
 
-          <p class="contact-description">
+          <p class="contact-intro">
 
             Feel free to reach out by email or connect
             with me through LinkedIn and GitHub.
@@ -1251,10 +1304,10 @@
 
             <a
               href="mailto:shamim.gharaei2002@gmail.com"
-              class="contact-item"
+              class="contact-card"
             >
 
-              <span class="contact-label">
+              <span class="contact-type">
                 EMAIL
               </span>
 
@@ -1271,10 +1324,10 @@
               href="https://www.linkedin.com/in/shamimgharaei"
               target="_blank"
               rel="noopener noreferrer"
-              class="contact-item"
+              class="contact-card"
             >
 
-              <span class="contact-label">
+              <span class="contact-type">
                 LINKEDIN
               </span>
 
@@ -1291,10 +1344,10 @@
               href="https://github.com/shamim-gharaei"
               target="_blank"
               rel="noopener noreferrer"
-              class="contact-item"
+              class="contact-card"
             >
 
-              <span class="contact-label">
+              <span class="contact-type">
                 GITHUB
               </span>
 
@@ -1305,7 +1358,6 @@
               <i>↗</i>
 
             </a>
-
 
           </div>
 
