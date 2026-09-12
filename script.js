@@ -1,25 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
   const html = document.documentElement;
+
+  /* THEME */
   const themeToggle = document.getElementById("theme-toggle");
-  const languageButtons = document.querySelectorAll(".language-button");
-
-  let currentLanguage = localStorage.getItem("site-language") || "en";
   const savedTheme = localStorage.getItem("theme");
-
-  if (savedTheme === "dark" || savedTheme === "light") {
-    html.setAttribute("data-theme", savedTheme);
-  } else {
-    html.setAttribute("data-theme", "light");
-  }
+  html.setAttribute("data-theme", savedTheme === "dark" ? "dark" : "light");
 
   function updateThemeButton() {
     if (!themeToggle) return;
-    const theme = html.getAttribute("data-theme");
-    themeToggle.textContent = theme === "dark" ? "☀" : "☾";
-    themeToggle.setAttribute(
-      "aria-label",
-      theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
-    );
+    const dark = html.getAttribute("data-theme") === "dark";
+    themeToggle.textContent = dark ? "☀" : "☾";
+    themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
   }
 
   updateThemeButton();
@@ -31,21 +22,25 @@ document.addEventListener("DOMContentLoaded", () => {
     updateThemeButton();
   });
 
-
   /* LANGUAGE */
-  function applyLanguage(language) {
-    currentLanguage = language;
-    html.lang = language;
-    localStorage.setItem("site-language", language);
+  let currentLanguage = localStorage.getItem("portfolio-language") === "fr" ? "fr" : "en";
+  const languageButtons = document.querySelectorAll(".language-button");
+
+  function applyLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem("portfolio-language", lang);
+    html.lang = lang;
 
     document.querySelectorAll("[data-en][data-fr]").forEach((element) => {
-      const text = element.dataset[language];
-      if (typeof text === "string") element.textContent = text;
+      const value = element.dataset[lang];
+      if (typeof value === "string") element.textContent = value;
     });
 
     languageButtons.forEach((button) => {
-      button.classList.toggle("active", button.dataset.lang === language);
+      button.classList.toggle("active", button.dataset.lang === lang);
     });
+
+    renderProjects(window.__portfolioRepos || []);
   }
 
   languageButtons.forEach((button) => {
@@ -54,41 +49,95 @@ document.addEventListener("DOMContentLoaded", () => {
 
   applyLanguage(currentLanguage);
 
-
-  /* LIVE GITHUB METADATA */
+  /* GITHUB PROJECTS */
+  const projectsContainer = document.getElementById("github-projects");
   const githubUsername = "shamim-gharaei";
 
-  document.querySelectorAll(".project-card[data-repo]").forEach(async (card) => {
-    const repoName = card.dataset.repo;
+  const projectConfig = [
+    {
+      repo: "network-intrusion-anomaly-detection",
+      title: "Network Intrusion Anomaly Detection",
+      descriptionEn: "A machine-learning project exploring PortScan detection using network-traffic data from CICIDS2017.",
+      descriptionFr: "Un projet d'apprentissage automatique explorant la détection de PortScan à partir de données de trafic réseau CICIDS2017.",
+      tags: ["Python", "Pandas", "scikit-learn", "CICIDS2017"]
+    },
+    {
+      repo: "social-network-anomaly-analysis",
+      title: "Social Network Anomaly Analysis",
+      descriptionEn: "A graph-based project exploring structural characteristics and anomaly identification in social-network data using Python and NetworkX.",
+      descriptionFr: "Un projet fondé sur les graphes explorant les caractéristiques structurelles et l'identification d'anomalies dans des données de réseaux sociaux avec Python et NetworkX.",
+      tags: ["Python", "NetworkX", "Graph Analysis"]
+    }
+  ];
+
+  function prettyLanguage(language) {
+    if (!language) return "GitHub";
+    return language;
+  }
+
+  function renderProjects(repositories) {
+    if (!projectsContainer) return;
+
+    projectsContainer.innerHTML = "";
+
+    projectConfig.forEach((config, index) => {
+      const repo = repositories.find((item) => item.name === config.repo) || {};
+      const card = document.createElement("a");
+      card.className = `project-card project-card-${index + 1}`;
+      card.href = repo.html_url || `https://github.com/${githubUsername}/${config.repo}`;
+      card.target = "_blank";
+      card.rel = "noopener noreferrer";
+
+      const updated = repo.updated_at
+        ? new Date(repo.updated_at).toLocaleDateString(currentLanguage === "fr" ? "fr-FR" : "en-US", { month: "short", year: "numeric" })
+        : "GitHub";
+
+      const updatedLabel = currentLanguage === "fr" ? "Mis à jour" : "Updated";
+      const description = currentLanguage === "fr" ? config.descriptionFr : config.descriptionEn;
+
+      card.innerHTML = `
+        <div class="project-header">
+          <div class="project-title-wrap">
+            <div class="github-project-icon">GH</div>
+            <h3>${config.title}</h3>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+        <p class="project-description">${description}</p>
+        <div class="project-tech">
+          ${config.tags.map((tag) => `<span>${tag}</span>`).join("")}
+        </div>
+        <div class="project-meta">
+          <span>${prettyLanguage(repo.language)}</span>
+          <span>★ ${repo.stargazers_count ?? 0}</span>
+          <span>${updatedLabel} ${updated}</span>
+        </div>
+      `;
+
+      projectsContainer.appendChild(card);
+    });
+  }
+
+  async function loadGitHubProjects() {
+    if (!projectsContainer) return;
 
     try {
-      const response = await fetch(`https://api.github.com/repos/${githubUsername}/${repoName}`);
+      const response = await fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=100`);
       if (!response.ok) throw new Error("GitHub API request failed");
-      const repo = await response.json();
-
-      const language = card.querySelector(".repo-language");
-      const stars = card.querySelector(".repo-stars");
-      const updated = card.querySelector(".repo-updated");
-
-      if (language && repo.language) language.textContent = repo.language;
-      if (stars) stars.textContent = `★ ${repo.stargazers_count}`;
-
-      if (updated && repo.updated_at) {
-        const date = new Date(repo.updated_at);
-        updated.textContent = `Updated ${date.toLocaleDateString("en-US", {
-          month: "short",
-          year: "numeric"
-        })}`;
-      }
+      const repositories = await response.json();
+      window.__portfolioRepos = repositories;
+      renderProjects(repositories);
     } catch (error) {
-      console.warn(`GitHub metadata unavailable for ${repoName}`, error);
+      console.error("GitHub projects:", error);
+      window.__portfolioRepos = [];
+      renderProjects([]);
     }
-  });
+  }
 
+  loadGitHubProjects();
 
   /* REVEAL */
   const revealItems = document.querySelectorAll(".reveal");
-
   if ("IntersectionObserver" in window) {
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -97,13 +146,12 @@ document.addEventListener("DOMContentLoaded", () => {
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
 
     revealItems.forEach((item) => revealObserver.observe(item));
   }
 
-
-  /* ACTIVE NAVIGATION */
+  /* ACTIVE NAV */
   const sections = document.querySelectorAll("main section[id]");
   const navLinks = document.querySelectorAll(".nav-links a");
 
@@ -111,34 +159,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const navigationObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-
         navLinks.forEach((link) => link.classList.remove("active"));
-        const activeLink = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-        activeLink?.classList.add("active");
+        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        active?.classList.add("active");
       });
     }, { rootMargin: "-38% 0px -52% 0px" });
 
     sections.forEach((section) => navigationObserver.observe(section));
   }
 
-
   /* SCROLL PROGRESS */
   const progressBar = document.getElementById("scroll-progress");
-
   function updateScrollProgress() {
     if (!progressBar) return;
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
     const percentage = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
     progressBar.style.width = `${percentage}%`;
   }
-
   window.addEventListener("scroll", updateScrollProgress, { passive: true });
   updateScrollProgress();
 
-
   /* HERO PARALLAX */
   const heroVisual = document.getElementById("hero-visual");
-
   if (heroVisual) {
     window.addEventListener("mousemove", (event) => {
       if (window.innerWidth < 1000) return;
@@ -148,118 +190,100 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { passive: true });
   }
 
-
   /* GRAPH TOOLTIP */
-  const graphNodes = document.querySelectorAll(".graph-node");
   const graphTooltip = document.getElementById("graph-tooltip");
   const networkWrapper = document.querySelector(".network-wrapper");
 
   if (graphTooltip && networkWrapper) {
-    graphNodes.forEach((node) => {
+    document.querySelectorAll(".graph-node").forEach((node) => {
       node.addEventListener("mouseenter", (event) => {
-        const key = currentLanguage === "fr" ? "labelFr" : "labelEn";
-        graphTooltip.textContent = event.target.dataset[key] || "Research Area";
-
+        const label = currentLanguage === "fr" ? event.target.dataset.labelFr : event.target.dataset.labelEn;
+        graphTooltip.textContent = label || "Research Area";
         const nodeRect = event.target.getBoundingClientRect();
         const wrapperRect = networkWrapper.getBoundingClientRect();
-
         graphTooltip.style.left = `${nodeRect.left - wrapperRect.left + nodeRect.width / 2}px`;
         graphTooltip.style.top = `${nodeRect.top - wrapperRect.top}px`;
         graphTooltip.classList.add("visible");
       });
-
       node.addEventListener("mouseleave", () => graphTooltip.classList.remove("visible"));
     });
   }
 
-
-  /* CITATION */
-  const citationText = "Dabaghi-Zarandi, F., Gharaei, S., & Zeynali, A. (2025). Anomaly Detection in Social Networks: A Taxonomy of Methods, Research Challenges, and Future Directions. National Conference on Information Technology, Nanotechnology, Artificial Intelligence and Technological Futures Studies.";
-  const citationButton = document.getElementById("copy-citation");
-  const modalCitationButton = document.getElementById("modal-copy-citation");
-  const citationMessage = document.getElementById("citation-message");
-
-  async function copyCitation(button) {
-    try {
-      await navigator.clipboard.writeText(citationText);
-      if (button) button.dataset.copied = "true";
-      if (citationMessage) {
-        citationMessage.textContent = currentLanguage === "fr" ? "Référence copiée." : "Citation copied to clipboard.";
-      }
-      setTimeout(() => {
-        if (citationMessage) citationMessage.textContent = "";
-      }, 2200);
-    } catch (error) {
-      console.warn("Clipboard unavailable", error);
-      if (citationMessage) {
-        citationMessage.textContent = currentLanguage === "fr" ? "Impossible de copier automatiquement." : "Unable to copy automatically.";
-      }
-    }
-  }
-
-  citationButton?.addEventListener("click", () => copyCitation(citationButton));
-  modalCitationButton?.addEventListener("click", () => copyCitation(modalCitationButton));
-
-
   /* PAPER MODAL */
-  const modalTriggers = document.querySelectorAll(".modal-trigger");
-  const modalCloseTargets = document.querySelectorAll("[data-modal-close]");
+  const paperModal = document.getElementById("paper-modal");
+  const openPaperButtons = document.querySelectorAll("[data-open-paper]");
+  const closeModalButtons = document.querySelectorAll("[data-modal-close]");
 
-  function openModal(modal) {
-    if (!modal) return;
-    modal.classList.add("open");
-    modal.setAttribute("aria-hidden", "false");
+  function openPaperModal() {
+    if (!paperModal) return;
+    paperModal.classList.add("open");
+    paperModal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
   }
 
-  function closeModal(modal) {
-    if (!modal) return;
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
+  function closePaperModal() {
+    if (!paperModal) return;
+    paperModal.classList.remove("open");
+    paperModal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
   }
 
-  modalTriggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openModal(document.getElementById(trigger.dataset.modalTarget));
-    });
-  });
-
-  modalCloseTargets.forEach((target) => {
-    target.addEventListener("click", () => closeModal(target.closest(".modal")));
-  });
-
+  openPaperButtons.forEach((button) => button.addEventListener("click", openPaperModal));
+  closeModalButtons.forEach((button) => button.addEventListener("click", closePaperModal));
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      document.querySelectorAll(".modal.open").forEach(closeModal);
-    }
+    if (event.key === "Escape") closePaperModal();
   });
 
+  /* COPY CITATION */
+  const citationText = "Dabaghi-Zarandi, F., Gharaei, S., & Zeynali, A. (2025). Anomaly Detection in Social Networks: A Taxonomy of Methods, Research Challenges, and Future Directions. National Conference on Information Technology, Nanotechnology, Artificial Intelligence and Technological Futures Studies.";
+  const citationMessage = document.getElementById("citation-message");
+  const copyButtons = [document.getElementById("copy-citation"), document.getElementById("modal-copy-citation")].filter(Boolean);
+
+  async function copyCitation(button) {
+    try {
+      if (navigator.clipboard) {
+        await navigator.clipboard.writeText(citationText);
+      } else {
+        const temporary = document.createElement("textarea");
+        temporary.value = citationText;
+        document.body.appendChild(temporary);
+        temporary.select();
+        document.execCommand("copy");
+        temporary.remove();
+      }
+
+      const original = button.textContent;
+      button.textContent = currentLanguage === "fr" ? "Copié ✓" : "Copied ✓";
+      if (citationMessage) citationMessage.textContent = currentLanguage === "fr" ? "Référence copiée." : "Citation copied to clipboard.";
+      setTimeout(() => {
+        button.textContent = original;
+        if (citationMessage) citationMessage.textContent = "";
+      }, 1800);
+    } catch (error) {
+      console.error("Clipboard:", error);
+      if (citationMessage) citationMessage.textContent = currentLanguage === "fr" ? "Impossible de copier automatiquement." : "Unable to copy automatically.";
+    }
+  }
+
+  copyButtons.forEach((button) => button.addEventListener("click", () => copyCitation(button)));
 
   /* CURSOR GLOW */
   const cursorGlow = document.getElementById("cursor-glow");
-
   if (cursorGlow && window.matchMedia("(pointer: fine)").matches) {
     window.addEventListener("mousemove", (event) => {
       cursorGlow.style.left = `${event.clientX}px`;
       cursorGlow.style.top = `${event.clientY}px`;
       cursorGlow.style.opacity = "1";
     }, { passive: true });
-
-    document.addEventListener("mouseleave", () => {
-      cursorGlow.style.opacity = "0";
-    });
+    document.addEventListener("mouseleave", () => { cursorGlow.style.opacity = "0"; });
   }
-
 
   /* BACK TO TOP */
   const backToTop = document.getElementById("back-to-top");
-
   function updateBackToTop() {
     if (!backToTop) return;
     backToTop.classList.toggle("visible", window.scrollY > 650);
   }
-
   window.addEventListener("scroll", updateBackToTop, { passive: true });
   backToTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   updateBackToTop();
