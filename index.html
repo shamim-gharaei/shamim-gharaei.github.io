@@ -32,8 +32,10 @@
   >
 
   <link rel="stylesheet" href="style.css">
+
   <script src="script.js" defer></script>
 </head>
+
 
 <body>
 
@@ -41,30 +43,45 @@
   <div id="cursor-glow"></div>
 
 
+  <!-- NAVIGATION -->
+
   <header class="navbar">
 
     <div class="container nav-container">
 
       <a href="#home" class="logo">
-        <span class="logo-mark">SG</span>
-        <span class="logo-name">Shamim Gharaei</span>
+
+        <span class="logo-mark">
+          SG
+        </span>
+
+        <span class="logo-name">
+          Shamim Gharaei
+        </span>
+
       </a>
 
+
       <nav class="nav-links">
+
         <a href="#about">About</a>
+        <a href="#education">Education</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
-        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
         <a href="#cv">CV</a>
         <a href="#contact">Contact</a>
+
       </nav>
+
 
       <button
         id="theme-toggle"
         class="theme-toggle"
         type="button"
-        aria-label="Toggle dark mode"
+        aria-label="Switch to dark mode"
       >
         ☾
       </button>
@@ -76,7 +93,9 @@
 
   <main>
 
+
     <!-- HERO -->
+
     <section id="home" class="hero">
 
       <div class="hero-pattern"></div>
@@ -88,26 +107,38 @@
 
       <div class="container hero-grid">
 
-        <div class="hero-copy entrance">
+
+        <div class="hero-copy">
 
           <div class="hero-badge">
+
             <span class="badge-dot"></span>
+
             Computer Engineering Graduate
+
           </div>
 
+
           <h1>
+
             Hi, I'm
+
             <span class="gradient-name">
               Shamim Gharaei.
             </span>
+
           </h1>
 
+
           <p class="hero-description">
+
             I'm interested in anomaly detection, machine learning,
-            and network and social-network analysis.
-            My experience in these areas comes mainly from
-            undergraduate projects and research.
+            and network and social-network analysis. My experience
+            in these areas comes mainly from undergraduate projects
+            and research.
+
           </p>
+
 
           <div class="hero-actions">
 
@@ -117,9 +148,12 @@
               rel="noopener noreferrer"
               class="primary-btn"
             >
+
               Explore GitHub
               <span>↗</span>
+
             </a>
+
 
             <a
               href="https://www.linkedin.com/in/shamimgharaei"
@@ -130,7 +164,18 @@
               LinkedIn
             </a>
 
+
+            <a
+              href="cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="ghost-btn"
+            >
+              View CV
+            </a>
+
           </div>
+
 
           <div class="hero-stats">
 
@@ -158,16 +203,21 @@
         </div>
 
 
+
+        <!-- RESEARCH MAP -->
+
         <div
-          class="hero-visual entrance"
+          class="hero-visual"
           id="hero-visual"
         >
 
           <div class="research-map-card">
 
+
             <div class="map-card-header">
 
               <div>
+
                 <span class="tiny-label">
                   INTERACTIVE RESEARCH MAP
                 </span>
@@ -175,11 +225,16 @@
                 <strong>
                   Areas of Interest
                 </strong>
+
               </div>
 
+
               <div class="portfolio-status">
+
                 <span></span>
+
                 Portfolio
+
               </div>
 
             </div>
@@ -194,6 +249,7 @@
               >
 
                 <g class="edges">
+
                   <line x1="70" y1="85" x2="185" y2="55"/>
                   <line x1="185" y1="55" x2="310" y2="100"/>
                   <line x1="310" y1="100" x2="435" y2="70"/>
@@ -208,7 +264,9 @@
 
                   <line x1="185" y1="55" x2="120" y2="225"/>
                   <line x1="310" y1="100" x2="260" y2="270"/>
+
                 </g>
+
 
                 <g class="nodes">
 
@@ -272,6 +330,7 @@
 
               </svg>
 
+
               <div
                 id="graph-tooltip"
                 class="graph-tooltip"
@@ -281,14 +340,18 @@
 
             </div>
 
+
             <p class="map-hint">
               Hover over the nodes to explore
             </p>
 
+
             <div class="map-tags">
+
               <span>Anomaly Detection</span>
               <span>Machine Learning</span>
               <span>Networks</span>
+
             </div>
 
           </div>
@@ -297,16 +360,12 @@
 
       </div>
 
-
-      <a href="#about" class="scroll-hint">
-        <span>Scroll</span>
-        <i></i>
-      </a>
-
     </section>
 
 
+
     <!-- ABOUT -->
+
     <section
       id="about"
       class="section section-white"
@@ -314,76 +373,76 @@
 
       <div class="container section-layout">
 
+
         <aside class="section-index">
+
           <span>01</span>
+
           About Me
+
         </aside>
+
 
         <div class="section-main animate-section">
 
           <p class="eyebrow">
-            BACKGROUND
+            ABOUT
           </p>
 
+
           <h2>
-            Developing my skills through
-            <span>projects and undergraduate research.</span>
+            A little
+            <span>about me.</span>
           </h2>
 
+
           <div class="about-grid">
+
 
             <div class="about-text">
 
               <p>
-                I'm a Computer Engineering graduate interested
-                in developing my technical and research skills
-                through practical projects.
+
+                I'm a Computer Engineering graduate interested in
+                developing my technical skills through practical
+                projects.
+
               </p>
 
+
               <p>
-                My recent work includes projects on anomaly
-                detection using network and social-network data,
-                as well as an undergraduate research paper on
-                anomaly detection in social networks.
+
+                My recent work includes projects involving network
+                and social-network data, along with undergraduate
+                work on anomaly detection in social networks.
+
               </p>
 
             </div>
 
-            <div class="about-highlights">
 
-              <article class="mini-card">
+            <div class="about-side">
 
-                <span class="mini-number">
-                  01
-                </span>
+              <div class="small-fact">
 
-                <h3>
-                  Undergraduate Research
-                </h3>
+                <span>Focus</span>
 
-                <p>
-                  Work related to anomaly detection
-                  in social networks.
-                </p>
+                <strong>
+                  Technical learning through projects
+                </strong>
 
-              </article>
+              </div>
 
-              <article class="mini-card">
 
-                <span class="mini-number">
-                  02
-                </span>
+              <div class="small-fact">
 
-                <h3>
-                  Technical Projects
-                </h3>
+                <span>Current Direction</span>
 
-                <p>
-                  Practical projects using network
-                  and social-network data.
-                </p>
+                <strong>
+                  Graduate study opportunities
+                </strong>
 
-              </article>
+              </div>
 
             </div>
 
@@ -396,18 +455,107 @@
     </section>
 
 
-    <!-- RESEARCH -->
+
+    <!-- EDUCATION -->
+
     <section
-      id="research"
+      id="education"
       class="section section-soft"
     >
 
       <div class="container section-layout">
 
+
         <aside class="section-index">
+
           <span>02</span>
-          Research Interests
+
+          Education
+
         </aside>
+
+
+        <div class="section-main animate-section">
+
+          <p class="eyebrow">
+            ACADEMIC BACKGROUND
+          </p>
+
+
+          <h2>
+            Education &
+            <span>background.</span>
+          </h2>
+
+
+          <article class="education-card">
+
+
+            <div class="education-date">
+              2020 — 2026
+            </div>
+
+
+            <div class="education-content">
+
+              <span class="education-type">
+                Bachelor's Degree
+              </span>
+
+
+              <h3>
+                B.Sc. in Computer Engineering
+              </h3>
+
+
+              <p class="education-university">
+                Vali-e-Asr University of Rafsanjan
+              </p>
+
+
+              <p class="education-description">
+
+                Undergraduate work included anomaly detection
+                in social networks and practical projects involving
+                network and graph data.
+
+              </p>
+
+            </div>
+
+
+            <div class="education-decoration">
+              🎓
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- RESEARCH INTERESTS -->
+
+    <section
+      id="research"
+      class="section section-white"
+    >
+
+      <div class="container section-layout">
+
+
+        <aside class="section-index">
+
+          <span>03</span>
+
+          Research Interests
+
+        </aside>
+
 
         <div class="section-main animate-section">
 
@@ -415,67 +563,59 @@
             INTERESTS
           </p>
 
+
           <h2>
             Areas I'm
             <span>interested in.</span>
           </h2>
 
-          <div class="research-grid">
 
-            <article class="research-card research-pink">
+          <div class="interest-grid">
 
-              <div class="research-top">
-                <div class="research-icon">◉</div>
-                <span>01</span>
-              </div>
 
-              <h3>
+            <div class="interest-item interest-pink">
+
+              <span class="interest-dot"></span>
+
+              <strong>
                 Anomaly Detection
-              </h3>
+              </strong>
 
-            </article>
+            </div>
 
 
-            <article class="research-card research-purple">
+            <div class="interest-item interest-purple">
 
-              <div class="research-top">
-                <div class="research-icon">◇</div>
-                <span>02</span>
-              </div>
+              <span class="interest-dot"></span>
 
-              <h3>
+              <strong>
                 Machine Learning
-              </h3>
+              </strong>
 
-            </article>
+            </div>
 
 
-            <article class="research-card research-green">
+            <div class="interest-item interest-green">
 
-              <div class="research-top">
-                <div class="research-icon">⬡</div>
-                <span>03</span>
-              </div>
+              <span class="interest-dot"></span>
 
-              <h3>
+              <strong>
                 Network Intrusion Detection
-              </h3>
+              </strong>
 
-            </article>
+            </div>
 
 
-            <article class="research-card research-pink">
+            <div class="interest-item interest-pink">
 
-              <div class="research-top">
-                <div class="research-icon">⌘</div>
-                <span>04</span>
-              </div>
+              <span class="interest-dot"></span>
 
-              <h3>
+              <strong>
                 Social Network Analysis
-              </h3>
+              </strong>
 
-            </article>
+            </div>
+
 
           </div>
 
@@ -486,35 +626,46 @@
     </section>
 
 
+
     <!-- PUBLICATIONS -->
+
     <section
       id="publications"
-      class="section section-white"
+      class="section section-soft"
     >
 
       <div class="container section-layout">
 
+
         <aside class="section-index">
-          <span>03</span>
+
+          <span>04</span>
+
           Publications
+
         </aside>
+
 
         <div class="section-main animate-section">
 
           <p class="eyebrow">
-            RESEARCH
+            PUBLICATION
           </p>
+
 
           <h2>
             Selected
             <span>publication.</span>
           </h2>
 
+
           <article class="publication-card">
 
             <div class="publication-line"></div>
 
+
             <div class="publication-top">
+
 
               <div class="publication-tags">
 
@@ -528,6 +679,7 @@
 
               </div>
 
+
               <button
                 id="copy-citation"
                 class="citation-btn"
@@ -538,13 +690,18 @@
 
             </div>
 
+
             <h3>
+
               Anomaly Detection in Social Networks:
               A Taxonomy of Methods, Research Challenges,
               and Future Directions
+
             </h3>
 
+
             <div class="publication-info">
+
 
               <div>
 
@@ -553,12 +710,15 @@
                 </span>
 
                 <p>
+
                   F. Dabaghi-Zarandi,
                   <strong>S. Gharaei</strong>,
                   A. Zeynali
+
                 </p>
 
               </div>
+
 
               <div>
 
@@ -567,18 +727,23 @@
                 </span>
 
                 <p>
+
                   National Conference on Information Technology,
                   Nanotechnology, Artificial Intelligence and
                   Technological Futures Studies
+
                 </p>
 
               </div>
 
+
             </div>
+
 
             <p
               id="citation-message"
               class="citation-message"
+              aria-live="polite"
             ></p>
 
           </article>
@@ -590,7 +755,87 @@
     </section>
 
 
+
+    <!-- PROJECTS -->
+
+    <section
+      id="projects"
+      class="section section-white"
+    >
+
+      <div class="container section-layout">
+
+
+        <aside class="section-index">
+
+          <span>05</span>
+
+          Projects
+
+        </aside>
+
+
+        <div class="section-main animate-section">
+
+
+          <div class="projects-heading">
+
+
+            <div>
+
+              <p class="eyebrow">
+                GITHUB
+              </p>
+
+              <h2>
+                Selected
+                <span>projects.</span>
+              </h2>
+
+              <p class="section-description">
+
+                A selection of recent technical projects
+                available on my GitHub profile.
+
+              </p>
+
+            </div>
+
+
+            <a
+              href="https://github.com/shamim-gharaei?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="all-repositories"
+            >
+              All repositories ↗
+            </a>
+
+
+          </div>
+
+
+          <div
+            id="github-projects"
+            class="projects-grid"
+          >
+
+            <p class="projects-message">
+              Loading GitHub projects...
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
     <!-- SKILLS -->
+
     <section
       id="skills"
       class="section section-soft"
@@ -598,10 +843,15 @@
 
       <div class="container section-layout">
 
+
         <aside class="section-index">
-          <span>04</span>
+
+          <span>06</span>
+
           Skills & Tools
+
         </aside>
+
 
         <div class="section-main animate-section">
 
@@ -609,12 +859,15 @@
             TOOLKIT
           </p>
 
+
           <h2>
             Technical
             <span>skills.</span>
           </h2>
 
+
           <div class="skills-grid">
+
 
             <article class="skill-card">
 
@@ -631,13 +884,16 @@
               </div>
 
               <div class="skill-tags">
+
                 <span>Python</span>
                 <span>C</span>
                 <span>C++</span>
                 <span>Java</span>
+
               </div>
 
             </article>
+
 
 
             <article class="skill-card">
@@ -649,21 +905,24 @@
                 </div>
 
                 <h3>
-                  ML & Data Science
+                  Libraries & Data Tools
                 </h3>
 
               </div>
 
               <div class="skill-tags">
+
                 <span>NumPy</span>
                 <span>Pandas</span>
                 <span>scikit-learn</span>
                 <span>Matplotlib</span>
                 <span>NetworkX</span>
                 <span>Jupyter Notebook</span>
+
               </div>
 
             </article>
+
 
 
             <article class="skill-card">
@@ -681,13 +940,16 @@
               </div>
 
               <div class="skill-tags">
+
                 <span>Git</span>
                 <span>GitHub</span>
                 <span>Linux</span>
                 <span>LaTeX</span>
+
               </div>
 
             </article>
+
 
 
             <article class="skill-card">
@@ -705,11 +967,14 @@
               </div>
 
               <div class="skill-tags">
+
                 <span>PostgreSQL</span>
                 <span>MySQL</span>
+
               </div>
 
             </article>
+
 
 
             <article class="skill-card skill-wide">
@@ -727,12 +992,15 @@
               </div>
 
               <div class="skill-tags">
+
                 <span>HTML</span>
                 <span>CSS</span>
                 <span>Django</span>
+
               </div>
 
             </article>
+
 
           </div>
 
@@ -743,59 +1011,125 @@
     </section>
 
 
-    <!-- PROJECTS -->
+
+    <!-- EXPERIENCE -->
+
     <section
-      id="projects"
+      id="experience"
       class="section section-white"
     >
 
       <div class="container section-layout">
 
+
         <aside class="section-index">
-          <span>05</span>
-          GitHub Projects
+
+          <span>07</span>
+
+          Experience
+
         </aside>
+
 
         <div class="section-main animate-section">
 
-          <div class="projects-heading">
+          <p class="eyebrow">
+            EXPERIENCE
+          </p>
 
-            <div>
 
-              <p class="eyebrow">
-                PORTFOLIO
-              </p>
+          <h2>
+            Selected
+            <span>experience.</span>
+          </h2>
 
-              <h2>
-                Selected
-                <span>projects.</span>
-              </h2>
 
-              <p class="section-description">
-                A selection of my recent technical
-                and research projects.
-              </p>
+          <div class="timeline">
 
-            </div>
 
-            <a
-              href="https://github.com/shamim-gharaei?tab=repositories"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="all-repositories"
-            >
-              All repositories ↗
-            </a>
+            <article class="timeline-item">
 
-          </div>
+              <div class="timeline-marker"></div>
 
-          <div
-            id="github-projects"
-            class="projects-grid"
-          >
-            <p class="projects-message">
-              Loading GitHub projects...
-            </p>
+              <div class="timeline-date">
+                2026 — Present
+              </div>
+
+
+              <div class="timeline-content">
+
+                <h3>
+                  IT Specialist
+                </h3>
+
+                <p>
+
+                  Technical support and IT-related responsibilities
+                  in a school environment.
+
+                </p>
+
+              </div>
+
+            </article>
+
+
+
+            <article class="timeline-item">
+
+              <div class="timeline-marker"></div>
+
+              <div class="timeline-date">
+                Teaching
+              </div>
+
+
+              <div class="timeline-content">
+
+                <h3>
+                  Programming Teaching Assistant
+                </h3>
+
+                <p>
+
+                  Assisted with an undergraduate
+                  C++ programming course.
+
+                </p>
+
+              </div>
+
+            </article>
+
+
+
+            <article class="timeline-item">
+
+              <div class="timeline-marker"></div>
+
+              <div class="timeline-date">
+                2023
+              </div>
+
+
+              <div class="timeline-content">
+
+                <h3>
+                  Faculty Office Internship
+                </h3>
+
+                <p>
+
+                  Worked with database-related tasks
+                  and Python data tools.
+
+                </p>
+
+              </div>
+
+            </article>
+
+
           </div>
 
         </div>
@@ -805,7 +1139,9 @@
     </section>
 
 
+
     <!-- CV -->
+
     <section
       id="cv"
       class="section section-soft"
@@ -813,14 +1149,20 @@
 
       <div class="container section-layout">
 
+
         <aside class="section-index">
-          <span>06</span>
+
+          <span>08</span>
+
           CV
+
         </aside>
+
 
         <div class="section-main animate-section">
 
           <div class="cv-card">
+
 
             <div>
 
@@ -838,6 +1180,7 @@
 
             </div>
 
+
             <div class="cv-actions">
 
               <a
@@ -848,6 +1191,7 @@
               >
                 View CV
               </a>
+
 
               <a
                 href="cv.pdf"
@@ -868,7 +1212,9 @@
     </section>
 
 
+
     <!-- CONTACT -->
+
     <section
       id="contact"
       class="contact-section"
@@ -880,21 +1226,28 @@
 
           <div class="contact-decoration"></div>
 
+
           <p class="eyebrow">
             GET IN TOUCH
           </p>
+
 
           <h2>
             Let's
             <span>connect.</span>
           </h2>
 
+
           <p class="contact-description">
-            Feel free to reach out by email or connect with me
-            through LinkedIn and GitHub.
+
+            Feel free to reach out by email or connect
+            with me through LinkedIn and GitHub.
+
           </p>
 
+
           <div class="contact-grid">
+
 
             <a
               href="mailto:shamim.gharaei2002@gmail.com"
@@ -953,6 +1306,7 @@
 
             </a>
 
+
           </div>
 
         </div>
@@ -961,7 +1315,9 @@
 
     </section>
 
+
   </main>
+
 
 
   <button
@@ -972,6 +1328,7 @@
   >
     ↑
   </button>
+
 
 
   <footer class="footer">
@@ -993,6 +1350,7 @@
     </div>
 
   </footer>
+
 
 </body>
 </html>
