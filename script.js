@@ -46,10 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth > 940) closeMenu();
   });
 
-  /* PROJECT DATA USED BY LANGUAGE + OPTIONAL GITHUB ENRICHMENT */
-  const githubUsername = "shamim-gharaei";
-  let repositoryCache = [];
-
   /* LANGUAGE */
   let currentLanguage = localStorage.getItem("portfolio-language") === "fr" ? "fr" : "en";
   const languageButtons = document.querySelectorAll(".language-button");
@@ -79,6 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
   applyLanguage(currentLanguage);
 
   /* STATIC PROJECT CARDS + OPTIONAL GITHUB ENRICHMENT */
+  const githubUsername = "shamim-gharaei";
+  let repositoryCache = [];
+
   function updateProjectMetadataLabels() {
     document.querySelectorAll(".project-card[data-repo]").forEach((card) => {
       const repoName = card.dataset.repo;
@@ -210,48 +209,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && paperModal?.classList.contains("open")) closePaperModal();
   });
-
-
-
-  /* PROJECT DEEP-DIVE MODALS */
-  const projectOpenButtons = document.querySelectorAll("[data-open-project]");
-  const projectCloseButtons = document.querySelectorAll("[data-project-close]");
-  let activeProjectModal = null;
-  let projectPreviousFocus = null;
-
-  function openProjectModal(modalId, trigger) {
-    const modal = document.getElementById(modalId);
-    const dialog = modal?.querySelector(".modal-dialog");
-    if (!modal || !dialog) return;
-    projectPreviousFocus = trigger || document.activeElement;
-    activeProjectModal = modal;
-    modal.classList.add("open");
-    modal.setAttribute("aria-hidden", "false");
-    body.classList.add("modal-open");
-    setTimeout(() => dialog.focus(), 0);
-  }
-
-  function closeProjectModal(modal = activeProjectModal) {
-    if (!modal) return;
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
-    activeProjectModal = null;
-    body.classList.remove("modal-open");
-    projectPreviousFocus?.focus?.();
-  }
-
-  projectOpenButtons.forEach((button) => {
-    button.addEventListener("click", () => openProjectModal(button.dataset.openProject, button));
-  });
-
-  projectCloseButtons.forEach((button) => {
-    button.addEventListener("click", () => closeProjectModal(button.closest(".project-modal")));
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && activeProjectModal) closeProjectModal(activeProjectModal);
-  });
-
 
   /* COPY CITATION */
   const citationText = "Dabaghi-Zarandi, F., Gharaei, S., & Zeynali, A. (2025). Anomaly Detection in Social Networks: A Taxonomy of Methods, Research Challenges, and Future Directions. National Conference on Information Technology, Nanotechnology, Artificial Intelligence and Technological Futures Studies.";
