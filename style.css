@@ -1209,3 +1209,85 @@ body { font-size: 17px; }
   .timeline-item { grid-template-columns: 1fr; }
   .timeline-dot { display: none; }
 }
+
+/* === FINAL BALANCE PASS: centered layout, calmer scale, clearer skills === */
+@media (min-width: 941px) {
+  .container { width: min(1240px, 92%); }
+  .section { padding: 64px 0; }
+  .section-layout {
+    grid-template-columns: 92px minmax(0, 1040px);
+    justify-content: center;
+    gap: 28px;
+  }
+  .section-content {
+    width: 100%;
+    max-width: 1040px;
+    margin-inline: auto;
+  }
+  .section-index { font-size: 13px; }
+  .section-title { font-size: clamp(44px, 3.2vw, 52px); margin-bottom: 24px; }
+  .section-subtitle,
+  .snapshot-intro,
+  .credentials-intro { font-size: 15.5px; line-height: 1.72; }
+
+  /* Research interests: centered, balanced cards */
+  .interest-grid { gap: 16px; }
+  .interest-card { min-height: 138px; padding: 22px; }
+  .interest-symbol { width: 52px; height: 52px; font-size: 20px; }
+  .interest-card strong { font-size: 17px; }
+  .interest-card p { font-size: 14.5px; }
+
+  /* Skills: keep the whole block centered and make icons visibly intentional */
+  .skills-heading {
+    align-items: flex-end;
+    gap: 36px;
+    margin-bottom: 26px;
+  }
+  .skills-heading > div { flex: 1; }
+  .skills-note { max-width: 430px; font-size: 15px; line-height: 1.7; }
+  .skills-grid { gap: 16px; }
+  .skill-card { min-height: 170px; padding: 24px; }
+  .skill-wide { min-height: 145px; }
+  .skill-topline { gap: 13px; }
+  .skill-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 17px;
+    font-size: 21px;
+    box-shadow: 0 8px 22px rgba(155,123,244,.08);
+  }
+  .skill-kicker { font-size: 10px; letter-spacing: 1.15px; }
+  .skill-card h3 { margin: 17px 0 14px; font-size: 19px; }
+  .skill-tags { gap: 8px; }
+  .skill-tags span { font-size: 12px; padding: 7px 11px; }
+
+  /* Academic highlights: no repeated research/publication timeline */
+  .snapshot-intro { max-width: 760px; }
+  .snapshot-grid-two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 900px;
+    margin-inline: auto;
+    gap: 20px;
+  }
+  .snapshot-grid-two .snapshot-card { min-height: 250px; padding: 27px; }
+  .snapshot-grid-two .snapshot-icon { width: 50px; height: 50px; font-size: 18px; border-radius: 15px; }
+  .snapshot-grid-two .snapshot-card-head { font-size: 10px; }
+  .snapshot-grid-two .snapshot-card h3 { font-size: 20px; margin: 20px 0 15px; }
+  .snapshot-grid-two .coursework-list span { font-size: 12.5px; padding: 8px 11px; }
+  .snapshot-grid-two .snapshot-card p,
+  .snapshot-grid-two .activity-list li { font-size: 14px; line-height: 1.65; }
+
+  /* Experience: slightly calmer than previous oversized pass */
+  .timeline-item { grid-template-columns: 16px 136px minmax(0,1fr); gap: 20px; }
+  .timeline-date { font-size: 12.5px; }
+  .timeline-card { padding: 23px 25px; }
+  .timeline-card h3 { font-size: 19px; }
+  .timeline-card p { font-size: 14.5px; }
+}
+
+@media (max-width: 940px) {
+  .snapshot-grid-two { grid-template-columns: 1fr; max-width: none; }
+  .skill-icon { width: 52px; height: 52px; font-size: 19px; }
+}
+.research-outcome-simple { justify-content: flex-end; }
+.research-outcome-simple .text-button { margin-left: auto; }
